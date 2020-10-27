@@ -4,9 +4,8 @@ body{
 
 img{
     float: left;
+    margin-right: 25px;
 }
-
-
 
 a{
     text-decoration: none;
@@ -14,7 +13,6 @@ a{
     border: 2px solid lightgreen;
     border-radius: 5px;
     padding: 5px 20px 5px 20px;
-    width: 50px;
     background-color: green;
 }
 
@@ -26,16 +24,24 @@ a:hover{
 .navli{
     float: left;
     list-style: none;
-    margin: 95px 0px 0px 100px;
+    margin: 105px 0px 0px 50px;
     color: black;
 }
 
 #header{
     float: auto;
     height: auto;
-    width: 100%;
+    width: 70%;
+    margin-left: auto;
 }
 
 .tasklist{
     clear: both;
+    width: 90%;
+    /*Could condense these margins in future..*/
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    background-color: lightgreen;
+    border: 1px solid green;
 }
