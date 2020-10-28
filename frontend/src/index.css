@@ -8,7 +8,9 @@ body{
   height: 100vh;
   margin: 0;
 }
-
+#root{
+  height: 100%;
+}
 img{
   float: left;
   margin-right: 25px;
@@ -75,12 +77,6 @@ h2{
   display: flex;
   justify-content: center;
   background-color: lightgreen;
-}
-
-
-.navli{
-  float: left;
-  color: black;
 }
 
 .tasklist{

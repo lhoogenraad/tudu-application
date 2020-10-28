@@ -2,7 +2,7 @@ import data from './data';
 import './App.css';
 import homescreen from './screens/homescreen';
 import taskscreen from './screens/taskscreen';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 
 function App() {
   return (
@@ -11,15 +11,15 @@ function App() {
       <header className="header">
         <img className="logo" src="logo.png" height="150" width="250"></img>
         <ul id="navul">
-          <li className="navli"><a href="index.html">Home</a></li>
-          <li className="navli"><a href="uhh.html">???</a></li>
-          <li className="navli"><a href="about.html">About</a></li>
+          <Link to="/">Home</Link>
+          <Link to="/">not sure yet</Link>
+          <Link to="/about.js">About</Link>
         </ul>
       </header>
       <main className="main">
         <div className="tasklist">
-          <Route path="/" exact={true} component={homescreen}></Route>
-          <Route path="/tasks/:id" component={taskscreen}></Route>
+          <Route className="route" path="/" exact={true} component={homescreen}></Route>
+          <Route className="route" path="/tasks/:id" component={taskscreen}></Route>
           <h2>Your Tasks</h2>
           <ul className="tasksul">
             {
@@ -30,6 +30,7 @@ function App() {
                     <div className="tasklistname">task.name</div>
                     <div className="tasklistdate">task.date</div>
                     <button className="deletebutton">Delete</button>
+                    <Link to={'/tasks/' + task.id}>View task</Link>
                   </div>
                 </li>
                 )
