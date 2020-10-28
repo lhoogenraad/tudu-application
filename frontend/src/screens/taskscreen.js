@@ -24,6 +24,9 @@ function taskscreen(props) {
                         </li>
                     </ul>
                 </div>
+                <div className="details-actions">
+                    <button>Delete task</button>
+                </div>
             </div>
         </div>
     )
