@@ -122,3 +122,16 @@ button{
 .tasklistdate{
   float: left;
 }
+
+/* Task details page */
+
+.details{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.details-description{
+  flex: 2 1 30rem;
+}
