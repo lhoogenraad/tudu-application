@@ -132,6 +132,28 @@ button{
   flex-wrap: wrap;
 }
 
-.details-description{
+.details-description, .details-actions{
   flex: 2 1 30rem;
+}
+
+.details-actions li, .details-description li{
+  margin-bottom: 1rem;
+}
+
+.back-button{
+  padding: 1rem;
+}
+
+.details-actions{
+  border: .1rem solid #808080;
+  border-radius: 0.5rem;
+  width: 5rem;
+  padding: 1rem;
+}
+
+.details-actions button{
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  height: 4rem;
 }

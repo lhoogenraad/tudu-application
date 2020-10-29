@@ -20,22 +20,6 @@ function App() {
         <div className="tasklist">
           <Route className="route" path="/" exact={true} component={homescreen}></Route>
           <Route className="route" path="/tasks/:id" component={taskscreen}></Route>
-          <h2>Your Tasks</h2>
-          <ul className="tasksul">
-            {
-              data.tasks.map(task =>
-                <li className="taskli">
-                  <div className="task">
-                    <input type="checkbox"></input>
-                    <div className="tasklistname">task.name</div>
-                    <div className="tasklistdate">task.date</div>
-                    <button className="deletebutton">Delete</button>
-                    <Link to={'/tasks/' + task.id}>View task</Link>
-                  </div>
-                </li>
-                )
-            }
-          </ul>
         </div>
       </main>
       <footer className="footer"></footer>

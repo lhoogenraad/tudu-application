@@ -7,7 +7,7 @@ function taskscreen(props) {
     const task = data.tasks.find(x => x.id === props.match.params.id);
     return (
         <div>
-            <div>
+            <div className="back-button">
                 <Link to="/">Back to your tasks</Link>
             </div>
             <div className="details">
