@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
-function homescreen (props) {
+function Homescreen (props) {
   /* These are our react hook definitions */
   const [tasks, setTasks] = useState([]);
   
   useEffect(() => {
     const fetchData = async () => {
       const {data} = await axios.get('/api/tasks');
+      setTasks(data);
     }
+    fetchData();
     return () => {
       //
     };
@@ -18,8 +20,8 @@ function homescreen (props) {
     return (
           <ul className="tasksul">
             {
-              data.tasks.map(task =>
-                <li className="taskli">
+              tasks.map(task =>
+                <li className="taskli" key={task.id}>
                   <div className="task">
                     <input type="checkbox"></input>
                     <div className="tasklistname">{task.name}</div>
@@ -34,4 +36,4 @@ function homescreen (props) {
     )
 }
 
-export default homescreen;
+export default Homescreen;
