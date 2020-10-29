@@ -1,4 +1,4 @@
-import {createStore, combineReducers, applyMiddleware} from 'redux';
+import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import {tasklistReducer} from '../src/reducers/tasklistReducer';
 import thunk from 'redux-thunk';
 

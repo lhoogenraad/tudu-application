@@ -17,7 +17,6 @@ function Taskscreen(props) {
           //
         };
       }, []);
-    //const task = data.tasks.find(x => x.id === props.match.params.id);
     return (
         <div>
             <div>
