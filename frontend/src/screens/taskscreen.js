@@ -8,7 +8,7 @@ function taskscreen(props) {
     return (
         <div>
             <div>
-                <Link to="/" className="back-button">Back to your tasks</Link>
+                <Link to="/" className="back-button"><span>Back to your tasks</span></Link>
             </div>
             <div className="details">
                 <div className="details-description">
