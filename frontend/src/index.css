@@ -93,6 +93,27 @@ h2{
   justify-content: center;
 }
 
+
+/* The delete button should definitely be updated soon.. */
+.deletebutton{
+  color: white;
+  font-size: 1.5rem;
+  background-color: red;
+  border: 3px solid darkred;
+  padding: 0.6rem 3rem;
+  border-radius: 1rem;
+}
+
+.deletebutton:hover{
+  background-color: #ff9999;
+  color: black;
+  border-color: red;
+}
+
+.deletebutton:active{
+  background-color: #aa0000;
+}
+
 input{
   float: left;
 }
@@ -157,3 +178,4 @@ button{
   width: 30rem;
   height: 4rem;
 }
+
