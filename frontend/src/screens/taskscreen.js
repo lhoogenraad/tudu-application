@@ -7,8 +7,8 @@ function taskscreen(props) {
     const task = data.tasks.find(x => x.id === props.match.params.id);
     return (
         <div>
-            <div className="back-button">
-                <Link to="/">Back to your tasks</Link>
+            <div>
+                <Link to="/" className="back-button">Back to your tasks</Link>
             </div>
             <div className="details">
                 <div className="details-description">
@@ -25,7 +25,7 @@ function taskscreen(props) {
                     </ul>
                 </div>
                 <div className="details-actions">
-                    <button>Delete task</button>
+                    <button className="deletebutton">Delete task</button>
                 </div>
             </div>
         </div>
