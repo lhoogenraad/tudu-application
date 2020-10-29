@@ -1,8 +1,20 @@
-import React from 'react';
-import data from '../data';
+import React, { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 function homescreen (props) {
+  /* These are our react hook definitions */
+  const [tasks, setTasks] = useState([]);
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      const {data} = await axios.get('/api/tasks');
+    }
+    return () => {
+      //
+    };
+  }, []);
+
     return (
           <ul className="tasksul">
             {
