@@ -22,5 +22,8 @@
     "@babel/node": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
     "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "redux-thunk": "^2.3.0"
   }
 }

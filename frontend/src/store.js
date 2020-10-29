@@ -1,6 +1,6 @@
-import {createStore, combineReducers} from 'redux';
+import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {tasklistReducer} from '../src/reducers/tasklistReducer';
-
+import thunk from 'redux-thunk';
 
 const initialState = {};
 
@@ -9,6 +9,6 @@ const reducer = combineReducers({
 
 })
 
-const store = createStore(reducer, initialState);
+const store = createStore(reducer, initialState, compose(applyMiddleware(thunk)));
 
 export default store;

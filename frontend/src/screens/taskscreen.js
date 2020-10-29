@@ -1,9 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-function taskscreen(props) {
-    console.log(props.match.params.id);
-    const task = data.tasks.find(x => x.id === props.match.params.id);
+function Taskscreen(props) {
+    const [task, setTask] = useState();
+    const taskid = props.match.params.id;
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+          const {data} = await axios.get('/api/task/' + taskid);
+          setTask(data);
+        }
+        fetchData();
+        return () => {
+          //
+        };
+      }, []);
+    //const task = data.tasks.find(x => x.id === props.match.params.id);
     return (
         <div>
             <div>
@@ -31,4 +45,4 @@ function taskscreen(props) {
     )
 }
 
-export default taskscreen;
+export default Taskscreen;

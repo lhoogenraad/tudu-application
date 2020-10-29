@@ -1,9 +1,10 @@
-import './App.css';
 import Homescreen from './screens/homescreen';
-import taskscreen from './screens/taskscreen';
+import Taskscreen from './screens/taskscreen';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 
 function App() {
+
+  
   return (
     <BrowserRouter>
     <div className="grid-container">
@@ -18,7 +19,7 @@ function App() {
       <main className="main">
         <div className="tasklist">
           <Route className="route" path="/" exact={true} component={Homescreen}></Route>
-          <Route className="route" path="/tasks/:id" component={taskscreen}></Route>
+          <Route className="route" path="/tasks/:id" component={Taskscreen}></Route>
         </div>
       </main>
       <footer className="footer"></footer>
