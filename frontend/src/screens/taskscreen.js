@@ -4,12 +4,11 @@ import axios from 'axios';
 
 function Taskscreen(props) {
     const [task, setTask] = useState();
-    const taskid = props.match.params.id;
 
 
     useEffect(() => {
         const fetchData = async () => {
-          const {data} = await axios.get('/api/task/' + taskid);
+          const {data} = await axios.get('/api/task/' + props.match.params.id);
           setTask(data);
         }
         fetchData();

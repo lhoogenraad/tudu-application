@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 function Homescreen (props) {
   /* These are our react hook definitions */
   const [tasks, setTasks] = useState([]);
-  
+  const taskList = useSelector(state => state.taskList);
+  const {tasks, loading, error} = taskList;
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    const fetchData = async () => {
-      const {data} = await axios.get('/api/tasks');
-      setTasks(data);
-    }
-    fetchData();
+    dispatch(listTasks);
     return () => {
       //
     };
