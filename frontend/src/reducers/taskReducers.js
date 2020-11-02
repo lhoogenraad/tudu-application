@@ -1,4 +1,4 @@
-import { TASK_LIST_FAIL, TASK_LIST_REQUEST, TASK_LIST_SUCCESS } from "../constants/taskConstants";
+import { TASK_LIST_FAIL, TASK_LIST_REQUEST, TASK_LIST_SUCCESS, TASK_SELECT_FAIL, TASK_SELECT_REQUEST, TASK_SELECT_SUCCESS } from "../constants/taskConstants";
 
 
 function taskListReducer(state= {tasks: []}, action){
@@ -14,4 +14,17 @@ function taskListReducer(state= {tasks: []}, action){
     }
 }
 
-export {taskListReducer};
+function taskSelectReducer(state= {task: {}}, action){
+    switch (action.type){
+        case TASK_SELECT_REQUEST:
+            return {loading: true};
+        case TASK_SELECT_SUCCESS:
+            return {loading: false, task: action.payload};
+        case TASK_SELECT_FAIL:
+            return {loading: false, error: action.payload};
+        default:
+            return state;
+    }
+}
+
+export {taskListReducer, taskSelectReducer};
