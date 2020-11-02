@@ -1,5 +1,5 @@
 import {createStore, combineReducers} from 'redux';
-
+import {taskListReducer} from './reducers/taskReducers';
 
 
 const initialState = {};
