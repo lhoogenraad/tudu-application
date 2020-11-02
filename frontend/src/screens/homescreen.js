@@ -13,7 +13,7 @@ function Homescreen(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(listProducts());
+    dispatch(listTasks());
     return () => {};
   }, []);
 
