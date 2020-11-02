@@ -1,22 +1,23 @@
-import React, { useEffect } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { listTasks } from '../actions/taskActions';
 
 function Homescreen(props) {
   /* These are our react hook definitions */
-  const taskList = useSelector((state) => state.taskList);
-  const {tasks, loading, error} = taskList;
-  const dispatch = useDispatch();
+  const [tasks, setTasks] = useState([]);
+
 
   useEffect(() => {
-    dispatch(listTasks());
+    const fetchData = async () => {
+      const {data} = await axios.get('/api/tasks');
+      setTasks(data);
+    }
+    fetchData();
     return () => {};
   }, []);
 
   return (
-    loading ? <div>Loading...</div> :
-      error ? <div>{error}</div> :
         <ul className="tasksul">
           {
             tasks.map(task =>

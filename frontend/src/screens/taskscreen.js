@@ -1,21 +1,25 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import data from './data';
 
 function Taskscreen(props) {
-    const [task, setTask] = useState();
+
+    /* These are our react hook definitions */
+    const [task, setTask] = useState([]);
 
 
     useEffect(() => {
         const fetchData = async () => {
-          const {data} = await axios.get('/api/task/' + props.match.params.id);
-          setTask(data);
+            const { data } = await axios.get('/api/tasks/' + props.match.params.id);
+            setTask(data);
         }
         fetchData();
         return () => {
-          //
+            //
         };
-      }, []);
+    }, []);
+    
     return (
         <div>
             <div>
