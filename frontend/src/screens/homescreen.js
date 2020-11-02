@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom';
 
 function Homescreen(props) {
   /* These are our react hook definitions */
-  const [tasks, setTasks] = useState([]);
+  //const [tasks, setTasks] = useState([]);
 
+  const taskList = useSelector(state => state.taskList);
+  const {tasks, loading, error} = taskList;
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchData = async () => {
-      const {data} = await axios.get('/api/tasks');
-      setTasks(data);
-    }
-    fetchData();
+    dispatch(listProducts());
     return () => {};
   }, []);
 
