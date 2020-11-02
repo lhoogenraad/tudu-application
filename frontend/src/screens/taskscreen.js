@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import data from './data';
 
 function Taskscreen(props) {
 
@@ -19,7 +18,7 @@ function Taskscreen(props) {
             //
         };
     }, []);
-    
+
     return (
         <div>
             <div>
