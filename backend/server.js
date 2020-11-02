@@ -8,8 +8,13 @@ app.get('/api/tasks', (req, res) => {
 });
 
 app.get('/api/tasks/:id', (req, res) => {
+    console.log('/api/tasks/:id invoked at ' + Date.now());
     const returntask = data.tasks.find(x => x.id === req.params.id);
-    res.send(returntask);
+    if(returntask){
+        res.send(returntask);
+    }else{
+        res.status(404).send({msg: "Task not found."});
+    }
     console.log('get ID invoked');
 });
 
