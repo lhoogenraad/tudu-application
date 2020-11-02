@@ -23,4 +23,4 @@ const getTask = (taskID) => async (dispatch) => {
     }
 }
 
-export {listTasks};
+export {listTasks, getTask};
