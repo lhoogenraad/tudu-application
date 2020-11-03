@@ -7,10 +7,11 @@ import mongoose from 'mongoose';
 
 dotenv.config();
 
-const mongodbUrl = config.mongodbUrl;
+const mongodbUrl = config.MONGODB_URL;
+
 mongoose.connect(mongodbUrl, {
     useNewUrlParser: true
-}).catch(error => console.log('error: ' + error.reason));
+}).catch(error => console.log('Error connecting to database: ' + error.message));
 
 const app = express();
 
