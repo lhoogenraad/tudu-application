@@ -1,5 +1,10 @@
 import express from 'express';
 import data from './data';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const mongodbUrl = config.mongodbUrl;
 
 const app = express();
 
