@@ -8,18 +8,18 @@ function Homescreen(props) {
   //const [tasks, setTasks] = useState([]);
 
   const taskList = useSelector(state => state.taskList);
-  const {tasks, loading, error} = taskList;
+  const { tasks, loading, error } = taskList;
 
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(listTasks());
-    return () => {};
+    return () => { };
   }, []);
 
   return (
     loading ? <div>Loading...</div> :
-    error ? <div>{error}</div> : 
+      error ? <div>{error}</div> :
         <ul className="tasksul">
           {
             tasks.map(task =>

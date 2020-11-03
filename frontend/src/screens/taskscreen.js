@@ -4,17 +4,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getTask } from '../actions/taskActions';
 
 function Taskscreen(props) {
-
     /* These are our react hook definitions */
     const taskData = useSelector(state => state.taskData);
     const { task, loading, error } = taskData;
+
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getTask());
-        return () => {
-            //
-        };
+        console.log('bababooey');
+        dispatch(getTask(props.match.params.id));
+        return () => { };
     }, []);
 
     return (
