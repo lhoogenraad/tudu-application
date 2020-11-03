@@ -10,7 +10,7 @@ dotenv.config();
 const mongodbUrl = config.mongodbUrl;
 mongoose.connect(mongodbUrl, {
     useNewUrlParser: true
-}).catch(error => console.log(error.reason));
+}).catch(error => console.log('error: ' + error.reason));
 
 const app = express();
 

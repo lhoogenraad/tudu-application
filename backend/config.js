@@ -1,3 +1,3 @@
 export default {
-    MONGODB_URL: process.env.MONGODB_URL || 'mongodb://localhost/TuDu-application'
+    MONGODB_URL: process.env.MONGODB_URL || 'mongodb://localhost/TuDu'
 }
