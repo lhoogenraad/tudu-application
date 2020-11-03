@@ -7,7 +7,7 @@ const initialState = {};
 
 const reducer = combineReducers({
     taskList: taskListReducer,
-    taskSelect: taskSelectReducer,
+    taskSelect: taskSelectReducer
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

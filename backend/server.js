@@ -4,6 +4,7 @@ import data from './data';
 const app = express();
 
 app.get('/api/tasks', (req, res) => {
+    console.log('/api/tasks/ invoked at ' + Date.now());
     res.send(data.tasks);
 });
 
@@ -15,7 +16,6 @@ app.get('/api/tasks/:id', (req, res) => {
     }else{
         res.status(404).send({msg: "Task not found."});
     }
-    console.log('get ID invoked');
 });
 
 app.listen(5000, () => {console.log('backend server started on port 5000')});

@@ -7,10 +7,10 @@ function Homescreen(props) {
   /* These are our react hook definitions */
   //const [tasks, setTasks] = useState([]);
 
+  const dispatch = useDispatch();
+
   const taskList = useSelector(state => state.taskList);
   const { tasks, loading, error } = taskList;
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(listTasks());
