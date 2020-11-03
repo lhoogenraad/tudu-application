@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "dotenv": "^8.2.0",
+    "mongoose": "^5.10.11",
     "redux-thunk": "^2.3.0"
   }
 }
