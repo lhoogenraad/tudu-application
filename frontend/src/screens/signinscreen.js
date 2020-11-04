@@ -21,8 +21,6 @@ function SignInScreen(props) {
 
     const submitHandler = (e) => {
         // Prevent page from refreshing after submission
-        console.log(password);
-        console.log(email);
         e.preventDefault();
     }
 
