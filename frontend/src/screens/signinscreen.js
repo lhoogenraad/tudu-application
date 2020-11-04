@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { signIn } from '../actions/userActions';
 //import { getUser } from '../actions/userActions';
 
 function SignInScreen(props) {
@@ -22,6 +23,7 @@ function SignInScreen(props) {
     const submitHandler = (e) => {
         // Prevent page from refreshing after submission
         e.preventDefault();
+        dispatch(signIn(email, password));
     }
 
     return (
