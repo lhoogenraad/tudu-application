@@ -3,18 +3,23 @@ import data from './data';
 import dotenv from 'dotenv';
 import config from './config';
 import mongoose from 'mongoose';
+import userRoute from './routes/userRoute';
 
-
+/* This code is for initialising a connection to the mongodb database */
 dotenv.config();
-
 const mongodbUrl = config.MONGODB_URL;
-
 mongoose.connect(mongodbUrl, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true,
 }).catch(error => console.log('Error connecting to database: ' + error.message));
 
+
+/* This code is for setting up the express server to handle requests (on port 5000) */
+
 const app = express();
+
+app.use('/api/users', userRoute);
 
 app.get('/api/tasks', (req, res) => {
     console.log('/api/tasks/ invoked at ' + Date.now());
