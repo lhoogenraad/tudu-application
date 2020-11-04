@@ -1,6 +1,7 @@
 import Homescreen from './screens/homescreen';
 import Taskscreen from './screens/taskscreen';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
+import SignInScreen from './screens/signinscreen';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
         <div className="tasklist">
           <Route className="route" path="/" exact={true} component={Homescreen}></Route>
           <Route className="route" path="/tasks/:id" component={Taskscreen}></Route>
+          <Route className="route" path="signin" component={SignInScreen}></Route>
         </div>
       </main>
       <footer className="footer"></footer>
