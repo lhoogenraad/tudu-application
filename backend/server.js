@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import config from './config';
 import mongoose from 'mongoose';
 import userRoute from './routes/userRoute';
+import bodyParser from 'body-parser';
 
 /* This code is for initialising a connection to the mongodb database */
 dotenv.config();
@@ -18,7 +19,7 @@ mongoose.connect(mongodbUrl, {
 /* This code is for setting up the express server to handle requests (on port 5000) */
 
 const app = express();
-
+app.use(bodyParser.json());
 app.use('/api/users', userRoute);
 
 app.get('/api/tasks', (req, res) => {
