@@ -21,6 +21,8 @@ function SignInScreen(props) {
 
     const submitHandler = (e) => {
         // Prevent page from refreshing after submission
+        console.log(password);
+        console.log(email);
         e.preventDefault();
     }
 
@@ -42,24 +44,24 @@ function SignInScreen(props) {
                         onChange={(e) => setEmail(e.target.value)}></input>
                     </li>
                     <li>
-                        <label>Password</label>
+                        <label for="password">Password</label>
                         <input
                         type="password"
                         className="password"
                         name="password"
                         id="password"
-                        placeholder="password"
+                        placeholder="Password"
                         onChange={(e) => setPassword(e.target.value)}
                         ></input>
                     </li>
                     <li>
-                        <button type="submit" className="button-primary">Sign In</button>
+                        <button type="submit" className="button primary">Sign In</button>
                     </li>
                     <li>
                         New to TuDu?
                     </li>
                     <li>
-                        <Link to="/register" className="button-full-width">Create an account</Link>
+                        <Link to="/register" className="button secondary text-center">Create an account</Link>
                     </li>
                 </ul>
             </form>
