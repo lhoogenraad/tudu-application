@@ -58,17 +58,6 @@ button:active{
   transition: .2s;
   background-color: lightgreen;
 }
-
-  h2{
-    width: 75%;
-    background-color: lightblue;
-    border: 5px solid blue;
-    border-radius: 20px;
-    padding: 10px;
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-  }
   
   .grid-container{
     display: grid;

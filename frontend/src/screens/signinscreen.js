@@ -29,7 +29,7 @@ function SignInScreen(props) {
             <form onSubmit={submitHandler}>
                 <ul className="form-container">
                     <li>
-                        <h3>Sign in</h3>
+                        <h2>Sign in</h2>
                     </li>
                     <li>
                         <label for="email">Email</label>
