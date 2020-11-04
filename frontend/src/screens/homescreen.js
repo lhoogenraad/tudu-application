@@ -20,21 +20,23 @@ function Homescreen(props) {
   return (
     loading ? <div>Loading...</div> :
       error ? <div>{error}</div> :
-        <ul className="tasksul">
-          {
-            tasks.map(task =>
-              <li className="taskli" key={task.id}>
-                <div className="task">
-                  <input type="checkbox"></input>
-                  <div className="tasklistname">{task.name}</div>
-                  <div className="tasklistdate">{task.date}</div>
-                  <Link to={'/tasks/' + task.id}>View task</Link>
-                  <button className="deletebutton">Delete</button>
-                </div>
-              </li>
-            )
-          }
-        </ul>
+        <div className="tasklist">
+          <ul className="tasksul">
+            {
+              tasks.map(task =>
+                <li className="taskli" key={task.id}>
+                  <div className="task">
+                    <input type="checkbox"></input>
+                    <div className="tasklistname">{task.name}</div>
+                    <div className="tasklistdate">{task.date}</div>
+                    <Link to={'/tasks/' + task.id}>View task</Link>
+                    <button className="deletebutton">Delete</button>
+                  </div>
+                </li>
+              )
+            }
+          </ul>
+        </div>
   )
 }
 

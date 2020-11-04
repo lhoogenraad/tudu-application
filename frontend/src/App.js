@@ -18,11 +18,9 @@ function App() {
         </ul>
       </header>
       <main className="main">
-        <div className="tasklist">
           <Route className="route" path="/" exact={true} component={Homescreen}></Route>
           <Route className="route" path="/tasks/:id" component={Taskscreen}></Route>
-          <Route className="route" path="signin" component={SignInScreen}></Route>
-        </div>
+          <Route className="route" path="/signin" component={SignInScreen}></Route>
       </main>
       <footer className="footer"></footer>
     </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 //import { getUser } from '../actions/userActions';
 
 function SignInScreen(props) {
@@ -10,8 +10,8 @@ function SignInScreen(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const userSelect = useSelector(state => state.userSelect);
-    const { user , loading, error } = userSelect;
+    /*const userSelect = useSelector(state => state.userSelect);
+    const { user , loading, error } = userSelect;*/
 
 
 
@@ -19,10 +19,18 @@ function SignInScreen(props) {
         return () => { };
     }, []);
 
+    const submitHandler = (e) => {
+        // Prevent page from refreshing after submission
+        e.preventDefault();
+    }
+
     return (
         <div className="form">
             <form onSubmit={submitHandler}>
                 <ul className="form-container">
+                    <li>
+                        <h3>Sign in</h3>
+                    </li>
                     <li>
                         <label for="email">Email</label>
                         <input 
