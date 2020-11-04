@@ -13,7 +13,7 @@ function App() {
         <img className="logo" src="logo.png" height="150" width="250" alt="tudu-logo"></img>
         <ul id="navul">
           <Link to="/">Home</Link>
-          <Link to="/">not sure yet</Link>
+          <Link to="/signin">Sign in</Link>
           <Link to="/about.js">About</Link>
         </ul>
       </header>
