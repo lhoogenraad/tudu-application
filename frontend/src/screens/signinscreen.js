@@ -6,19 +6,21 @@ import { signIn } from '../actions/userActions';
 
 function SignInScreen(props) {
     /* These are our react hook definitions */
-    const dispatch = useDispatch();
-
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    /*const userSelect = useSelector(state => state.userSelect);
-    const { user , loading, error } = userSelect;*/
+    const userSignin = useSelector(state => state.userSignin);
+    const {loading, userInfo, error} = userSignin;
+    const dispatch = useDispatch();
 
 
 
     useEffect(() => {
+        /* If user is already logged in, redirect them to the homepage */
+        if(userInfo){
+            props.history.push('/');
+        }
         return () => { };
-    }, []);
+    }, [userInfo]);
 
     const submitHandler = (e) => {
         // Prevent page from refreshing after submission
@@ -34,7 +36,11 @@ function SignInScreen(props) {
                         <h2>Sign in</h2>
                     </li>
                     <li>
-                        <label for="email">Email</label>
+                        {loading && <div>Loading...</div>}
+                        {error && <div>{erorr}</div>}
+                    </li>
+                    <li>
+                        <label htmlFor="email">Email</label>
                         <input 
                         type="email"
                         className="email" 
@@ -44,7 +50,7 @@ function SignInScreen(props) {
                         onChange={(e) => setEmail(e.target.value)}></input>
                     </li>
                     <li>
-                        <label for="password">Password</label>
+                        <label htmlFor="password">Password</label>
                         <input
                         type="password"
                         className="password"
