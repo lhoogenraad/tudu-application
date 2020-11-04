@@ -22,12 +22,12 @@ const app = express();
 app.use('/api/users', userRoute);
 
 app.get('/api/tasks', (req, res) => {
-    console.log('/api/tasks/ invoked at ' + Date.now());
+    //console.log('/api/tasks/ invoked at ' + Date.now());
     res.send(data.tasks);
 });
 
 app.get('/api/tasks/:id', (req, res) => {
-    console.log('/api/tasks/:id invoked at ' + Date.now());
+    //console.log('/api/tasks/:id invoked at ' + Date.now());
     const returntask = data.tasks.find(x => x.id === req.params.id);
     if(returntask){
         res.send(returntask);
