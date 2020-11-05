@@ -28,7 +28,7 @@ function RegisterScreen(props) {
     const submitHandler = (e) => {
         // Prevent page from refreshing after submission
         e.preventDefault();
-        dispatch(register(email, password));
+        dispatch(register(name, email, password));
     }
 
     return (
@@ -36,11 +36,11 @@ function RegisterScreen(props) {
             <form onSubmit={submitHandler}>
                 <ul className="form-container">
                     <li>
-                        <h2>Sign in</h2>
+                        <h2>Sign up</h2>
                     </li>
                     <li>
                         {loading && <div>Loading...</div>}
-                        {error && <div>Invalid email or password</div>}
+                        {error && <div>{error}</div>}
                     </li>
                     <li>
                         <label htmlFor="name">Name</label>
@@ -86,13 +86,13 @@ function RegisterScreen(props) {
                         ></input>
                     </li>
                     <li>
-                        <button type="submit" className="button primary">Sign In</button>
+                        <button type="submit" className="button primary">Create account</button>
                     </li>
                     <li>
-                        New to TuDu?
+                        Already have an account?
                     </li>
                     <li>
-                        <Link to="/register" className="button secondary text-center">Create an account</Link>
+                        <Link to="/register" className="button secondary text-center">Sign in</Link>
                     </li>
                 </ul>
             </form>
