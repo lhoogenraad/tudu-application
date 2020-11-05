@@ -31,15 +31,6 @@ html{
     color: black;
     margin-right: 15px;
     clear: both;
-    background-color: #D5FFCC;
-    padding: .5rem .9rem;
-    border-radius: 3rem;
-  }
-  
-  a:hover{
-    transition: 0.2s;
-    color: #030;
-    background-color: #93ddaa;
   }
   
   input{
@@ -51,7 +42,6 @@ html{
     align-items: right;
     color: black;
   }
-
 
 
 button:hover{
@@ -110,7 +100,25 @@ button:active{
     justify-content: center;
   }
   
-  
+  /* Represents the nav buttons */
+  .navul a{
+    background-color: #D5FFCC;
+    padding: 1rem 2rem;
+    border-radius: 3rem;
+    margin-right: 4rem;
+    color: #030;
+  }
+
+  .navul a:hover{
+      transition: 0.2s;
+      background-color: #afa;
+  }
+
+  .navul a:active{
+    transition: 0.05s;
+    background-color: white;
+  }
+
   /* The delete button should definitely be updated soon.. */
   .deletebutton{
     color: white;

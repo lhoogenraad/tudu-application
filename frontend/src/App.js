@@ -14,7 +14,7 @@ function App() {
       <div className="grid-container">
         <header className="header">
           <img className="logo" src="logo.png" height="150" width="250" alt="tudu-logo"></img>
-          <ul id="navul">
+          <ul className="navul">
             <Link to="/">Home</Link>
             {userInfo ? <Link to="/profile">{userInfo.name}</Link> : <Link to="/signin">Sign in</Link>
             }
