@@ -49,7 +49,22 @@ router.post('/signin', async (req, res) => {
 
 // Handles request to create a new user
 router.post('/register', async (req, res) => {
-    
+    const user = new User({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.body.password,
+    });
+    const newUser = await user.save();
+    if (newUser){
+        res.send({
+            _id: newUser._id,
+            name: newUser.name,
+            email: newUser.email,
+            password: newUser.password,
+        });
+    }else{
+        res.status(401).send({msg: 'Invalid user data. Account not created'});
+    }
 })
 
 export default router;
