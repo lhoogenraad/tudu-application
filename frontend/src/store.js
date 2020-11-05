@@ -1,6 +1,6 @@
 import {createStore, combineReducers, compose, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import {taskListReducer, taskSelectReducer} from './reducers/taskReducers';
+import {taskCreateReducer, taskListReducer, taskSelectReducer} from './reducers/taskReducers';
 import { userRegisterReducer, userSigninReducer } from './reducers/userReducers';
 import Cookie from 'js-cookie';
 
@@ -14,6 +14,7 @@ const reducer = combineReducers({
     taskSelect: taskSelectReducer,
     userSignin: userSigninReducer,
     userRegister: userRegisterReducer,
+    taskCreate: taskCreateReducer,
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

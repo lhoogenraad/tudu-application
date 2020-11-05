@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import SignInScreen from './screens/signinscreen';
 import RegisterScreen from './screens/registerscreen';
 import Logout from './screens/logout';
+import CreateTask from './screens/createtaskscreen';
 import { useSelector } from 'react-redux';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route className="route" path="/signin" component={SignInScreen}></Route>
           <Route className="route" path="/register" component={RegisterScreen}></Route>
           <Route className="route" path="/logout" component={Logout}></Route>
+          <Route className="route" path="/createtask" component={CreateTask}></Route>
         </main>
         <footer className="footer"></footer>
       </div>
