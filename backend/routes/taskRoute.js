@@ -24,4 +24,27 @@ router.get('/allbyuser/:userID', (req, res) => {
     res.status(500).send({msg: 'Not implemented yet'});
 })
 
+// Creates a new Task entity and sends it to the database
+router.post('/createtask', async (req, res) => {
+    // This field will be used to represent the date the task was created
+    const date = new Date();
+    const saveDate = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
+
+    const task = new Task({
+        name: req.body.name,
+        description: req.body.description,
+        dateCreated: saveDate,
+        userID: req.body.userID,
+        // All new tasks are initially set to incompleted
+        isCompleted: false,
+    });
+    const newTask = await task.save();
+    if(newTask){
+        // Return successful http status 200 if newTask exists
+        res.status(200).send({msg: 'Task successfully created'});
+    }else{
+        res.status(401).send({msg: 'Task not created'});
+    }
+})
+
 export default router;
