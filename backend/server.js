@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import config from './config';
 import mongoose from 'mongoose';
 import userRoute from './routes/userRoute';
+import taskRoute from './routes/taskRoute';
 import bodyParser from 'body-parser';
 
 /* This code is for initialising a connection to the mongodb database */
@@ -19,22 +20,9 @@ mongoose.connect(mongodbUrl, {
 /* This code is for setting up the express server to handle requests (on port 5000) */
 
 const app = express();
+
 app.use(bodyParser.json());
 app.use('/api/users', userRoute);
-
-app.get('/api/tasks', (req, res) => {
-    //console.log('/api/tasks/ invoked at ' + Date.now());
-    res.send(data.tasks);
-});
-
-app.get('/api/tasks/:id', (req, res) => {
-    //console.log('/api/tasks/:id invoked at ' + Date.now());
-    const returntask = data.tasks.find(x => x.id === req.params.id);
-    if(returntask){
-        res.send(returntask);
-    }else{
-        res.status(404).send({msg: "Task not found."});
-    }
-});
+app.use('/api/tasks', taskRoute);
 
 app.listen(5000, () => {console.log('backend server started on port 5000')});

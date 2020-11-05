@@ -1,5 +1,4 @@
 import express from 'express';
-import { sign } from 'jsonwebtoken';
 import User from '../models/userModel';
 import {getToken} from '../util';
 
