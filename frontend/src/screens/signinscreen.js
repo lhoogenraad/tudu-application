@@ -37,7 +37,7 @@ function SignInScreen(props) {
                     </li>
                     <li>
                         {loading && <div>Loading...</div>}
-                        {error && <div>{erorr}</div>}
+                        {error && <div>{error}</div>}
                     </li>
                     <li>
                         <label htmlFor="email">Email</label>

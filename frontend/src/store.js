@@ -2,9 +2,12 @@ import {createStore, combineReducers, compose, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import {taskListReducer, taskSelectReducer} from './reducers/taskReducers';
 import { userSigninReducer } from './reducers/userReducers';
+import Cookie from 'js-cookie';
 
 
-const initialState = {};
+const userInfo = Cookie.getJSON('userInfo') || null;
+
+const initialState = {userSignin: {userInfo}};
 
 const reducer = combineReducers({
     taskList: taskListReducer,
