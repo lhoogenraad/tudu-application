@@ -18,12 +18,12 @@ function App() {
           <ul className="navul">
             <Link to="/">Home</Link>
             {userInfo ? <Link to="/profile">{userInfo.name}</Link> : 
-            <div>
             <Link to="/signin">Sign in</Link>
-            <Link to="/register">Register Account</Link>
-            </div>
             }
-            <Link to="/about.js">About</Link>
+            {userInfo ? <span></span>:
+            <Link to="/register">Register</Link>}
+
+            <Link to="/about">About</Link>
           </ul>
         </header>
         <main className="main">
