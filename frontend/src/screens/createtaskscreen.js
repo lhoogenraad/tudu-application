@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Cookie from 'js-cookie';
 import { Link } from 'react-router-dom';
-import { createtask } from '../actions/taskActions';
+import { createTask } from '../actions/taskActions';
 
 function CreateTaskScreen(props) {
     /* These are our react hook definitions */
@@ -34,7 +34,7 @@ function CreateTaskScreen(props) {
     const submitHandler = (e) => {
         // Prevent page from refreshing after submission
         e.preventDefault();
-        
+        dispatch(createTask(name, description, userID));
     }
 
     return (

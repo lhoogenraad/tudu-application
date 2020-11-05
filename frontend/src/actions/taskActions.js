@@ -35,4 +35,4 @@ const createTask = (name, description, userID) => async (dispatch) => {
 
 
 
-export {listTasks, getTask};
+export {listTasks, getTask, createTask};
