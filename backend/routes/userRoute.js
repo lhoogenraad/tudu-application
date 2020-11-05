@@ -21,7 +21,6 @@ router.get('/createadmin', async (req, res) => {
 });
 
 router.post('/signin', async (req, res) => {
-    console.log('/signin invoked');
     try{
         // Query db to see if user exists
         const signinUser = await User.findOne({
@@ -37,15 +36,11 @@ router.post('/signin', async (req, res) => {
                 isAdmin: signinUser.isAdmin,
                 token: getToken(signinUser),
             });
-            console.log('name: ' + signinUser.name);
         }else{
             res.status(401).send({msg: 'Invalid Email or Password'});
         }
 
     }catch(error){
-        console.log('error occured in /signin');
-        console.log(error.message);
-        console.log(error.reason);
         res.send({msg: error.message});
     }
 });
