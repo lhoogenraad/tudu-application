@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Cookie from 'js-cookie';
 import { Link } from 'react-router-dom';
 import { createtask } from '../actions/taskActions';
 
@@ -11,12 +12,21 @@ function CreateTaskScreen(props) {
     const [userID, setUserID] = useState('');
     
     const taskCreate = useSelector(state => state.taskCreate);
-    const {loading, userInfo, error} = taskCreate;
+    const {loading, error} = taskCreate;
+
     const dispatch = useDispatch();
 
-
+    // Here we get our cookie to see if the user is indeed logged in
+    const userInfo = Cookie.get('userInfo');
 
     useEffect(() => {
+        if(!userInfo){
+            /*
+                If user somehow navigated their way to this page without logging
+                in, redirect them to the signin page.
+            */
+            props.history.push('/signin');
+        }
         return () => { };
     }, [userInfo]);
 
