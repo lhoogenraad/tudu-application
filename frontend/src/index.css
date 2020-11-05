@@ -243,14 +243,13 @@ button:active{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
   }
 
 
 .form-container{
   display: flex;
   flex-direction: column;
-  width: 32rem;
+  width: 48rem;
   padding: 2rem 3.5rem;
   border: .6rem solid #66FF66;
   border-radius: .5rem;

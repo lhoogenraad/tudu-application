@@ -50,6 +50,7 @@ function RegisterScreen(props) {
                         name="name"
                         id="name"
                         placeholder="Name"
+                        required
                         onChange={(e) => setName(e.target.value)}
                         ></input>
                     </li>
@@ -61,6 +62,7 @@ function RegisterScreen(props) {
                         name="email" 
                         id="email"
                         placeholder="Email"
+                        required
                         onChange={(e) => setEmail(e.target.value)}></input>
                     </li>
                     <li>
@@ -71,6 +73,7 @@ function RegisterScreen(props) {
                         name="password"
                         id="password"
                         placeholder="Password"
+                        required
                         onChange={(e) => setPassword(e.target.value)}
                         ></input>
                     </li>
@@ -82,6 +85,7 @@ function RegisterScreen(props) {
                         name="repassword"
                         id="repassword"
                         placeholder="Re-enter password"
+                        required
                         onChange={(e) => setRePassword(e.target.value)}
                         ></input>
                     </li>
