@@ -37,7 +37,7 @@ function taskSelectReducer(state = { task: {} }, action) {
     }
 }
 
-function taskCreateReducer(state = { task: {} }, action) {
+function taskCreateReducer(state = {}, action) {
     switch (action.type) {
         case TASK_CREATE_REQUEST:
             return { loading: true };

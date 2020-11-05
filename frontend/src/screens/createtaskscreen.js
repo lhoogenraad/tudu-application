@@ -7,17 +7,18 @@ import { createtask } from '../actions/taskActions';
 function CreateTaskScreen(props) {
     /* These are our react hook definitions */
     const [name, setName] = useState('');
-    const [description, setDescription] = useState(null);
-    const [dateCreated, setDateCreated] = useState('');
+    const [description, setDescription] = useState('');
+    //const [dateCreated, setDateCreated] = useState(''); //Pretty sure I don't need this const
     const [userID, setUserID] = useState('');
     
     const taskCreate = useSelector(state => state.taskCreate);
     const {loading, error} = taskCreate;
 
-    const dispatch = useDispatch();
+    // This code here sets the userID to the current user's ID
+    const {userInfo} = Cookie.get('userInfo');
+    setUserID(userInfo._id);
 
-    // Here we get our cookie to see if the user is indeed logged in
-    const userInfo = Cookie.get('userInfo');
+    const dispatch = useDispatch();
 
     useEffect(() => {
         if(!userInfo){

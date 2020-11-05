@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import {TASK_LIST_FAIL, TASK_LIST_REQUEST, TASK_LIST_SUCCESS, TASK_SELECT_FAIL, TASK_SELECT_REQUEST, TASK_SELECT_SUCCESS} from '../constants/taskConstants';
+import {TASK_CREATE_FAIL, TASK_CREATE_REQUEST, TASK_CREATE_SUCCESS, TASK_LIST_FAIL, TASK_LIST_REQUEST, TASK_LIST_SUCCESS, TASK_SELECT_FAIL, TASK_SELECT_REQUEST, TASK_SELECT_SUCCESS} from '../constants/taskConstants';
 
 // Returns all tasks in data file
 const listTasks = () =>  async (dispatch) => {
@@ -22,5 +22,17 @@ const getTask = (taskID) => async (dispatch) => {
         dispatch({type: TASK_SELECT_FAIL, payload: error.message});
     }
 }
+
+const createTask = (name, description, userID) => async (dispatch) => {
+    dispatch({type: TASK_CREATE_REQUEST, payload: {name, description, userID}});
+    try{
+        const {data} = await Axios.post('/api/tasks/createtask', {name, description, userID});
+        dispatch({type: TASK_CREATE_SUCCESS, payload: data});
+    }catch(error){
+        dispatch({type: TASK_CREATE_FAIL, payload: error.message});
+    }
+}
+
+
 
 export {listTasks, getTask};
