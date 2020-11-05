@@ -9,6 +9,8 @@ function RegisterScreen(props) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [rePassword, setRePassword] = useState('');
+    
     const userRegister = useSelector(state => state.userRegister);
     const {loading, userInfo, error} = userRegister;
     const dispatch = useDispatch();
@@ -41,6 +43,17 @@ function RegisterScreen(props) {
                         {error && <div>Invalid email or password</div>}
                     </li>
                     <li>
+                        <label htmlFor="name">Re-enter Password</label>
+                        <input
+                        type="text"
+                        className="name"
+                        name="name"
+                        id="name"
+                        placeholder="Name"
+                        onChange={(e) => setName(e.target.value)}
+                        ></input>
+                    </li>
+                    <li>
                         <label htmlFor="email">Email</label>
                         <input 
                         type="email"
@@ -59,6 +72,17 @@ function RegisterScreen(props) {
                         id="password"
                         placeholder="Password"
                         onChange={(e) => setPassword(e.target.value)}
+                        ></input>
+                    </li>
+                    <li>
+                        <label htmlFor="repassword">Re-enter Password</label>
+                        <input
+                        type="password"
+                        className="password"
+                        name="repassword"
+                        id="repassword"
+                        placeholder="Re-enter password"
+                        onChange={(e) => setRePassword(e.target.value)}
                         ></input>
                     </li>
                     <li>
