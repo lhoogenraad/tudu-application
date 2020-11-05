@@ -3,6 +3,7 @@ import Taskscreen from './screens/taskscreen';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import SignInScreen from './screens/signinscreen';
 import RegisterScreen from './screens/registerscreen';
+import Logout from './screens/logout';
 import { useSelector } from 'react-redux';
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
             {userInfo ? <Link to="/profile">{userInfo.name}</Link> : 
             <Link to="/signin">Sign in</Link>
             }
-            {userInfo ? <span></span>:
+            {userInfo ? <Link to="/logout">Logout</Link>:
             <Link to="/register">Register</Link>}
 
             <Link to="/about">About</Link>
@@ -31,6 +32,7 @@ function App() {
           <Route className="route" path="/tasks/:id" component={Taskscreen}></Route>
           <Route className="route" path="/signin" component={SignInScreen}></Route>
           <Route className="route" path="/register" component={RegisterScreen}></Route>
+          <Route className="route" path="/logout" component={Logout}></Route>
         </main>
         <footer className="footer"></footer>
       </div>

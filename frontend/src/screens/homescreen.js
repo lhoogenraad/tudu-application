@@ -9,8 +9,17 @@ function Homescreen(props) {
 
   const dispatch = useDispatch();
 
+  /* 
+    Here we get the list of tasks the user has created
+  */
   const taskList = useSelector(state => state.taskList);
   const { tasks, loading, error } = taskList;
+  /* 
+    Here we are 'getting' the userInfo cookie to decide whether to
+    display tasks or suggest that the user logs in.
+  */
+  const userSignin = useSelector(state => state.userSignin);
+  const {userInfo} = userSignin;
 
   useEffect(() => {
     dispatch(listTasks());
@@ -20,6 +29,7 @@ function Homescreen(props) {
   return (
     loading ? <div>Loading...</div> :
       error ? <div>{error}</div> :
+      !userInfo ? <div>Not logged in</div> : 
         <div className="tasklist">
           <ul className="tasksul">
             {

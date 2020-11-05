@@ -1,6 +1,6 @@
 import Axios from 'axios';
 import Cookie from 'js-cookie';
-import {USER_REGISTER_FAIL, 
+import {USER_LOGOUT, USER_REGISTER_FAIL, 
     USER_REGISTER_REQUEST, 
     USER_REGISTER_SUCCESS, 
     USER_SIGNIN_FAIL, 
@@ -32,4 +32,9 @@ const register = (name, email, password) => async (dispatch) => {
     }
 }
 
-export {signIn, register};
+const logout = () => (dispatch) => {
+    Cookie.remove('userInfo');
+    dispatch({type: USER_LOGOUT});
+}
+
+export {signIn, register, logout};

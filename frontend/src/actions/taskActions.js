@@ -5,7 +5,7 @@ import {TASK_LIST_FAIL, TASK_LIST_REQUEST, TASK_LIST_SUCCESS, TASK_SELECT_FAIL, 
 const listTasks = () =>  async (dispatch) => {
     try{
         dispatch({type: TASK_LIST_REQUEST});
-        const {data} = await Axios.get('/api/tasks');
+        const {data} = await Axios.get('/api/tasks/all');
         dispatch({type: TASK_LIST_SUCCESS, payload: data});
     }catch(error){
         dispatch({type: TASK_LIST_FAIL, payload: error.message});
