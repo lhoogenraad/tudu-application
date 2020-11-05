@@ -43,7 +43,7 @@ function RegisterScreen(props) {
                         {error && <div>Invalid email or password</div>}
                     </li>
                     <li>
-                        <label htmlFor="name">Re-enter Password</label>
+                        <label htmlFor="name">Name</label>
                         <input
                         type="text"
                         className="name"
