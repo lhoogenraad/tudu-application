@@ -29,6 +29,8 @@ function RegisterScreen(props) {
         // Prevent page from refreshing after submission
         e.preventDefault();
         dispatch(register(name, email, password));
+        // After successfully registering an account, user is redirected to signin screen //
+        props.history.push('/signin');
     }
 
     return (
