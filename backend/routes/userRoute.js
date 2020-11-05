@@ -20,6 +20,7 @@ router.get('/createadmin', async (req, res) => {
     }
 });
 
+//handles user sign in requests
 router.post('/signin', async (req, res) => {
     try{
         // Query db to see if user exists
@@ -44,5 +45,11 @@ router.post('/signin', async (req, res) => {
         res.send({msg: error.message});
     }
 });
+
+
+// Handles request to create a new user
+router.post('/register', async (req, res) => {
+    
+})
 
 export default router;
