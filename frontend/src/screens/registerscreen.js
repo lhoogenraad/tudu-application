@@ -6,6 +6,7 @@ import { register } from '../actions/userActions';
 
 function RegisterScreen(props) {
     /* These are our react hook definitions */
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const userRegister = useSelector(state => state.userRegister);
