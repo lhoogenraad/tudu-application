@@ -7,8 +7,8 @@ import { useSelector } from 'react-redux';
 function App() {
 
   const userSignin = useSelector(state => state.userSignin);
-  const userInfo = userSignin;
-  console.log(userInfo);
+  const {userInfo} = userSignin;
+  
   return (
     <BrowserRouter>
       <div className="grid-container">
@@ -16,7 +16,7 @@ function App() {
           <img className="logo" src="logo.png" height="150" width="250" alt="tudu-logo"></img>
           <ul id="navul">
             <Link to="/">Home</Link>
-            {userInfo ? <Link to="/profile">Bababooey{userInfo.name}</Link> : <Link to="/signin">Sign in</Link>
+            {userInfo ? <Link to="/profile">{userInfo.name}</Link> : <Link to="/signin">Sign in</Link>
             }
             <Link to="/about.js">About</Link>
           </ul>
