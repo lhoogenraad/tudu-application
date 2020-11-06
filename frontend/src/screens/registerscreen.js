@@ -16,7 +16,6 @@ function RegisterScreen(props) {
     const dispatch = useDispatch();
 
 
-
     useEffect(() => {
         /* If user is already logged in, redirect them to the homepage */
         if(userInfo){

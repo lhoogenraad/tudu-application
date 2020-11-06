@@ -10,16 +10,21 @@ function CreateTaskScreen(props) {
     const [description, setDescription] = useState('');
     //const [dateCreated, setDateCreated] = useState(''); //Pretty sure I don't need this const
     const [userID, setUserID] = useState('');
-    
-    const taskCreate = useSelector(state => state.taskCreate);
-    const {loading, error} = taskCreate;
 
-    // This code here sets the userID to the current user's ID
-    const userInfo = Cookie.get('userInfo');
+    const taskCreate = useSelector(state => state.taskCreate);
+    const { loading, error } = taskCreate;
+
+    const userSignin = useSelector(state => state.userSignin);
+    const { userInfo } = userSignin;
 
     const dispatch = useDispatch();
-
+    
     useEffect(() => {
+        if(userInfo){
+            setUserID(userInfo._id);
+        }else{
+            props.history.push('/signin');
+        }
         return () => { };
     }, [userInfo]);
 
@@ -27,7 +32,7 @@ function CreateTaskScreen(props) {
         // Prevent page from refreshing after submission
         e.preventDefault();
         setUserID(userInfo._id);
-        //dispatch(createTask(name, description, userID));
+        dispatch(createTask(name, description, userID));
     }
 
     return (
@@ -44,23 +49,23 @@ function CreateTaskScreen(props) {
                     <li>
                         <label htmlFor="name">Task Name</label>
                         <input
-                        type="text"
-                        className="name"
-                        name="name"
-                        id="name"
-                        placeholder="Name"
-                        required
-                        onChange={(e) => setName(e.target.value)}
+                            type="text"
+                            className="name"
+                            name="name"
+                            id="name"
+                            placeholder="Name"
+                            required
+                            onChange={(e) => setName(e.target.value)}
                         ></input>
                     </li>
                     <li>
                         <label htmlFor="description">Task Description (Optional)</label>
                         <textarea
-                        type="text"
-                        className="description" 
-                        name="description" 
-                        id="description"
-                        onChange={(e) => setDescription(e.target.value)}></textarea>
+                            type="text"
+                            className="description"
+                            name="description"
+                            id="description"
+                            onChange={(e) => setDescription(e.target.value)}></textarea>
                     </li>
                     <li>
                         <button type="submit" className="button primary">Create task</button>
