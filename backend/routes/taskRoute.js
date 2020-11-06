@@ -20,8 +20,8 @@ router.get('/getbyid/:id', (req, res) => {
 
 // Returns all tasks that have field userId === userID
 router.get('/allbyuser', async (req, res) => {
-    const userID = req.query.userID;
-    //? {_id: req.query._id} : {};
+    const userID = req.query.userID
+    ? {userID: req.query.userID} : {};
     const tasks = await Task.find({
         ...userID,
     });
@@ -30,7 +30,6 @@ router.get('/allbyuser', async (req, res) => {
     } else {
         res.status(404).send({ msg: 'Task not found by user with id ' + userID });
     }
-    console.log('invoked allbyuser with userID: ' + userID);
 });
 
 // Creates a new Task entity and sends it to the database

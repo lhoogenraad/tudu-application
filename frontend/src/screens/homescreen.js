@@ -22,8 +22,11 @@ function Homescreen(props) {
   const {userInfo} = userSignin;
 
   useEffect(() => {
-    console.log(userInfo._id);
-    dispatch(listTasks(userInfo._id));
+    // If user is logged in, display their tasks
+    if(userInfo){
+      dispatch(listTasks(userInfo._id));
+      console.log('userInfo present');
+    }
     return () => { };
   }, []);
 
