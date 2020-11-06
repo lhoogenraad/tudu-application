@@ -15,26 +15,19 @@ function CreateTaskScreen(props) {
     const {loading, error} = taskCreate;
 
     // This code here sets the userID to the current user's ID
-    const {userInfo} = Cookie.get('userInfo');
-    setUserID(userInfo._id);
+    const userInfo = Cookie.get('userInfo');
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if(!userInfo){
-            /*
-                If user somehow navigated their way to this page without logging
-                in, redirect them to the signin page.
-            */
-            props.history.push('/signin');
-        }
         return () => { };
     }, [userInfo]);
 
     const submitHandler = (e) => {
         // Prevent page from refreshing after submission
         e.preventDefault();
-        dispatch(createTask(name, description, userID));
+        setUserID(userInfo._id);
+        //dispatch(createTask(name, description, userID));
     }
 
     return (
@@ -61,7 +54,7 @@ function CreateTaskScreen(props) {
                         ></input>
                     </li>
                     <li>
-                        <label htmlFor="description">Task Description (Option)</label>
+                        <label htmlFor="description">Task Description (Optional)</label>
                         <textarea
                         type="text"
                         className="description" 
