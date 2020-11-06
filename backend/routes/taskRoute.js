@@ -11,24 +11,24 @@ router.get('/all', async (req, res) => {
 
 router.get('/getbyid/:id', (req, res) => {
     const returntask = data.tasks.find(x => x.id === req.params.id);
-    if(returntask){
+    if (returntask) {
         res.send(returntask);
-    }else{
-        res.status(404).send({msg: "Task not found."});
+    } else {
+        res.status(404).send({ msg: "Task not found." });
     }
 });
 
 // Returns all tasks that have field userId === userID
 router.get('/allbyuser', async (req, res) => {
-    const _id = req.query._id
-    ? {_id: req.query._id} : {};
+    const userID = req.query.userID;
+    //? {_id: req.query._id} : {};
     const tasks = await Task.find({
-        ..._id,
+        ...userID,
     });
-    if(tasks){
-    res.send(tasks);
-    }else{
-        res.status(404).send({msg: 'Task not found by user with id ' + userID});
+    if (tasks) {
+        res.send(tasks);
+    } else {
+        res.status(404).send({ msg: 'Task not found by user with id ' + userID });
     }
     console.log('invoked allbyuser with userID: ' + userID);
 });
@@ -48,11 +48,11 @@ router.post('/createtask', async (req, res) => {
         isCompleted: false,
     });
     const newTask = await task.save();
-    if(newTask){
+    if (newTask) {
         // Return successful http status 200 if newTask exists
-        res.status(200).send({msg: 'Task successfully created'});
-    }else{
-        res.status(401).send({msg: 'Task not created'});
+        res.status(200).send({ msg: 'Task successfully created' });
+    } else {
+        res.status(401).send({ msg: 'Task not created' });
     }
 })
 

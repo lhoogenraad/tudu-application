@@ -5,7 +5,7 @@ import {TASK_CREATE_FAIL, TASK_CREATE_REQUEST, TASK_CREATE_SUCCESS, TASK_LIST_FA
 const listTasks = (userID) =>  async (dispatch) => {
     try{
         dispatch({type: TASK_LIST_REQUEST});
-        const {data} = await Axios.get('/api/tasks/allbyuser?_id='+userID);
+        const {data} = await Axios.get('/api/tasks/allbyuser?userID='+userID);
         dispatch({type: TASK_LIST_SUCCESS, payload: data});
     }catch(error){
         dispatch({type: TASK_LIST_FAIL, payload: error.message});
