@@ -31,7 +31,7 @@ function Homescreen(props) {
   }, []);
 
   return (
-    loading ? <div>Loading...</div> :
+    loading ? <div className="tasklist loading">Loading...</div> :
       error ? <div>{error}</div> :
       !userInfo ? <div>Not logged in</div> : 
         <div className="tasklist">
