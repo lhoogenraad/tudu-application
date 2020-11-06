@@ -11,9 +11,14 @@ function Taskscreen(props) {
     const { task , loading, error } = taskSelect;
 
     useEffect(() => {
+        console.log(props.match.params.id);
         dispatch(getTask(props.match.params.id));
         return () => { };
     }, []);
+
+    const handleDelete = () => {
+        console.log('not implemented sorry hoss');
+    }
 
     return (
         <div>
@@ -38,7 +43,7 @@ function Taskscreen(props) {
                                 </ul>
                             </div>
                             <div className="details-actions">
-                                <button className="deletebutton">Delete task</button>
+                                <button className="deletebutton" onClick={handleDelete}>Delete task</button>
                             </div>
                         </div>
                     )

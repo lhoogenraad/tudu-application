@@ -9,12 +9,13 @@ router.get('/all', async (req, res) => {
     res.send(tasks);
 });
 
-router.get('/getbyid/:id', (req, res) => {
-    const returntask = data.tasks.find(x => x.id === req.params.id);
-    if (returntask) {
-        res.send(returntask);
-    } else {
-        res.status(404).send({ msg: "Task not found." });
+router.get('/getbyid/:id', async (req, res) => {
+    const task = await Task.findOne({_id: req.params.id});
+    // If we found task, return it. If not, return 404
+    if(task){
+        res.send(task);
+    }else{
+        res.status(404).send({msg: 'Task not found'});
     }
 });
 

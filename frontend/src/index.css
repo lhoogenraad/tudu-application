@@ -4,7 +4,7 @@ html{
   }
   
   body{
-    font: 1.6rem Helvetica;
+    font: 1.6rem Times;
     height: 100vh;
     margin: 0;
     background-color: #D5FFCC;
@@ -104,7 +104,6 @@ button:active{
   .tasklist.loading{
     text-align: center;
     font-size: 3rem;
-    transition: .5s;
     padding-top: 7rem;
   }
 
@@ -120,7 +119,6 @@ button:active{
     border-radius: 3rem;
     margin-right: 4rem;
     color: #030;
-    width: auto;
   }
 
   .navul a:hover{
@@ -231,7 +229,7 @@ button:active{
   
   .back-button span:after{
     color: black;
-    content: "\00bb";
+    content: '\00bb';
     position: absolute;
     opacity: 0;
     top: 0;
@@ -247,6 +245,7 @@ button:active{
   .back-button:hover span:hover{
     opacity: 1;
     right: 0;
+    transition: 0.5s;
   }
 
   /* Sign in screen */
@@ -288,6 +287,8 @@ button:active{
   border: .3rem solid #66FF66;
   font-size: 2.2rem;
   padding: 1rem 1.3rem;
+  text-align: center;
+  font-weight: normal;
 }
 
 .button.primary:hover{
@@ -298,7 +299,7 @@ button:active{
 
 .button.primary:active{
   transition: .2s;
-  background-color: lightgreen;
+  background-color: #66ff66;
 }
 
 .button.secondary{

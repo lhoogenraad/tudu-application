@@ -97,7 +97,7 @@ function RegisterScreen(props) {
                         Already have an account?
                     </li>
                     <li>
-                        <Link to="/signup" className="button secondary text-center">Sign in</Link>
+                        <Link to="/signup" className="button primary text-center">Sign in</Link>
                     </li>
                 </ul>
             </form>

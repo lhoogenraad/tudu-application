@@ -69,7 +69,7 @@ function SignInScreen(props) {
                         New to TuDu?
                     </li>
                     <li>
-                        <Link to="/register" className="button secondary text-center">Create an account</Link>
+                        <Link to="/register" className="button primary">Create an account</Link>
                     </li>
                 </ul>
             </form>

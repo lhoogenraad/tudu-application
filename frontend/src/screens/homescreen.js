@@ -48,7 +48,7 @@ function Homescreen(props) {
                     <input type="checkbox"></input>
                     <div className="tasklistname">{task.name}</div>
                     <div className="tasklistdate">{task.date}</div>
-                    <Link to={'/tasks/' + task.id}>View task</Link>
+                    <Link to={'/tasks/' + task._id}>View task</Link>
                     <button className="deletebutton">Delete</button>
                   </div>
                 </li>
