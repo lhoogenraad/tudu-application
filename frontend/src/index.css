@@ -183,31 +183,26 @@ button:active{
   
   .details{
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
     align-items: flex-start;
     flex-wrap: wrap;
   }
   
-  .details-description, .details-actions{
-    flex: 2 1 30rem;
+  .details ul {
+    width: 100%;
+  }
+
+  .details li{
+    margin-bottom: 6rem;
   }
   
-  .details-actions li, .details-description li{
-    margin-bottom: 1rem;
-  }
-  
-  .details-actions{
-    border: .1rem solid #808080;
-    border-radius: 0.5rem;
-    width: 5rem;
-    padding: 1rem;
-  }
-  
-  .details-actions button{
+  .details button{
+    margin-top: 5rem;
+    margin-left: 73%;
+    width: 169.55px;
+    font-size: 2rem;
     display: flex;
     flex-direction: column;
-    width: 30rem;
-    height: 4rem;
   }
   
   

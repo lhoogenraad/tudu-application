@@ -8,7 +8,7 @@ function Taskscreen(props) {
     const dispatch = useDispatch();
 
     const taskSelect = useSelector(state => state.taskSelect);
-    const { task , loading, error } = taskSelect;
+    const { task, loading, error } = taskSelect;
 
     useEffect(() => {
         console.log(props.match.params.id);
@@ -28,28 +28,32 @@ function Taskscreen(props) {
             {loading ? <div>Loading...</div> :
                 error ? <div>{error}</div> :
                     (
-                        <div className="details">
-                            <div className="details-description">
-                                <ul>
-                                    <li>
-                                        <h1>{task.name}</h1>
-                                    </li>
-                                    <li>
-                                        <p>{task.description}</p>
-                                    </li>
-                                    <li>
-                                        <p>Created on {task.date}</p>
-                                    </li>
-                                </ul>
+                        <div className="tasklist">
+                            <div className="details">
+                                    <ul>
+                                        <li>
+                                            <h1>Task name</h1>
+                                            <h3>{task.name}</h3>
+                                        </li>
+                                        <li>
+                                            <label>Task description</label>
+                                            <p>{task.description}</p>
+                                        </li>
+                                        <li>
+                                            <p>Created on {task.dateCreated}</p>
+                                        </li>
+                                        
+                                        <li>
+                                            <button className="deletebutton" onClick={handleDelete}>Delete task</button>
+                                        </li>
+                                    </ul>
                             </div>
-                            <div className="details-actions">
-                                <button className="deletebutton" onClick={handleDelete}>Delete task</button>
-                            </div>
+
                         </div>
                     )
             }
         </div>
-    )
-}
+        )
+    }
 
 export default Taskscreen;
