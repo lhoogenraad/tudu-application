@@ -4,9 +4,10 @@ import data from '../data';
 
 const router = express();
 
-router.get('/all', (req, res) => {
+router.get('/all', async (req, res) => {
     //console.log('/api/tasks/ invoked at ' + Date.now());
-    res.send(data.tasks);
+    const tasks = await Task.find({});
+    res.send(tasks);
 });
 
 router.get('/:id', (req, res) => {
@@ -20,9 +21,13 @@ router.get('/:id', (req, res) => {
 });
 
 // Returns all tasks that have field userId === userID
-router.get('/allbyuser/:userID', (req, res) => {
-    res.status(500).send({msg: 'Not implemented yet'});
-})
+router.get('/allbyuser', async (req, res) => {
+    const userID = req.query.userID;
+    const tasks = await Task.find({
+        ...userID,
+    });
+    res.send(tasks);
+});
 
 // Creates a new Task entity and sends it to the database
 router.post('/createtask', async (req, res) => {
