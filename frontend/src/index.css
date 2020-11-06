@@ -93,6 +93,7 @@ button:active{
     /*Could condense these margins in future..*/
     margin-left: auto;
     margin-right: auto;
+    margin-top: 3rem;
     background-color: lightgreen;
     border: 1px solid green;
     border-radius: 50px;
@@ -100,15 +101,26 @@ button:active{
     justify-content: center;
   }
   
+  .tasklist.loading{
+    text-align: center;
+    font-size: 3rem;
+    transition: .5s;
+    padding-top: 7rem;
+  }
+
+
   /* Represents the nav buttons */
 
 
   .navul a{
+    display: inline-block;
+    text-align: center;
     background-color: #D5FFCC;
     padding: 1rem 2rem;
     border-radius: 3rem;
     margin-right: 4rem;
     color: #030;
+    width: auto;
   }
 
   .navul a:hover{
