@@ -22,7 +22,8 @@ function Homescreen(props) {
   const {userInfo} = userSignin;
 
   useEffect(() => {
-    dispatch(listTasks());
+    console.log(userInfo._id);
+    dispatch(listTasks(userInfo._id));
     return () => { };
   }, []);
 

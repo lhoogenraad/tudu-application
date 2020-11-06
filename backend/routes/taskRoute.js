@@ -5,13 +5,11 @@ import data from '../data';
 const router = express();
 
 router.get('/all', async (req, res) => {
-    //console.log('/api/tasks/ invoked at ' + Date.now());
     const tasks = await Task.find({});
     res.send(tasks);
 });
 
-router.get('/:id', (req, res) => {
-    //console.log('/api/tasks/:id invoked at ' + Date.now());
+router.get('/getbyid/:id', (req, res) => {
     const returntask = data.tasks.find(x => x.id === req.params.id);
     if(returntask){
         res.send(returntask);
@@ -22,11 +20,17 @@ router.get('/:id', (req, res) => {
 
 // Returns all tasks that have field userId === userID
 router.get('/allbyuser', async (req, res) => {
-    const userID = req.query.userID;
+    const _id = req.query._id
+    ? {_id: req.query._id} : {};
     const tasks = await Task.find({
-        ...userID,
+        ..._id,
     });
+    if(tasks){
     res.send(tasks);
+    }else{
+        res.status(404).send({msg: 'Task not found by user with id ' + userID});
+    }
+    console.log('invoked allbyuser with userID: ' + userID);
 });
 
 // Creates a new Task entity and sends it to the database
