@@ -43,4 +43,4 @@ const deleteTask = (taskID) => async (dispatch) => {
     }
 }
 
-export {listTasks, getTask, createTask};
+export {listTasks, getTask, createTask, deleteTask};
