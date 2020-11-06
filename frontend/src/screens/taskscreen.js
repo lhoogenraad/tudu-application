@@ -17,7 +17,7 @@ function Taskscreen(props) {
     }, []);
 
     const handleDelete = () => {
-        console.log('not implemented sorry hoss');
+        console.log(props.match.params.id);
     }
 
     return (
@@ -32,17 +32,17 @@ function Taskscreen(props) {
                             <div className="details">
                                     <ul>
                                         <li>
-                                            <h1>Task name</h1>
+                                            <h2>Task name</h2>
                                             <h3>{task.name}</h3>
                                         </li>
                                         <li>
-                                            <label>Task description</label>
+                                            <h2>Task description</h2>
                                             <p>{task.description}</p>
                                         </li>
                                         <li>
                                             <p>Created on {task.dateCreated}</p>
                                         </li>
-                                        
+
                                         <li>
                                             <button className="deletebutton" onClick={handleDelete}>Delete task</button>
                                         </li>
