@@ -33,6 +33,14 @@ const createTask = (name, description, userID) => async (dispatch) => {
     }
 }
 
-
+const deleteTask = (taskID) => async (dispatch) => {
+    try{
+    dispatch({type: TASK_DELETE_REQUEST, payload: taskID});
+    const {result} = await Axios.delete('/api/tasks/deletetask/' + taskID);
+    dispatch({type: TASK_DELETE_SUCCESS, payload: result, success: true});
+    }catch(error){
+        dispatch({type: TASK_DELETE_FAIL, payload: error.message});
+    }
+}
 
 export {listTasks, getTask, createTask};

@@ -18,6 +18,7 @@ function Taskscreen(props) {
 
     const handleDelete = () => {
         console.log(props.match.params.id);
+        //dispatch(deleteTask(props.match.params.id));
     }
 
     return (
