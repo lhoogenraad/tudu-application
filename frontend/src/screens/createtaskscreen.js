@@ -38,6 +38,8 @@ function CreateTaskScreen(props) {
         // Prevent page from refreshing after submission
         e.preventDefault();
         dispatch(createTask(name, description, userID));
+        // Redirect user to home screen after 
+        props.history.push('/');
     }
 
     return (
