@@ -20,6 +20,12 @@ function CreateTaskScreen(props) {
     const dispatch = useDispatch();
     
     useEffect(() => {
+        /* 
+            If user is logged in, set the userId field
+            to their _id from the cookie.
+            If not, redirect them to sign in page because
+            they shouldn't be on this page.
+        */
         if(userInfo){
             setUserID(userInfo._id);
         }else{
@@ -31,7 +37,6 @@ function CreateTaskScreen(props) {
     const submitHandler = (e) => {
         // Prevent page from refreshing after submission
         e.preventDefault();
-        setUserID(userInfo._id);
         dispatch(createTask(name, description, userID));
     }
 
