@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getTask } from '../actions/taskActions';
+import { deleteTask, getTask } from '../actions/taskActions';
 
 function Taskscreen(props) {
     /* These are our react hook definitions */
@@ -16,9 +16,10 @@ function Taskscreen(props) {
         return () => { };
     }, []);
 
-    const handleDelete = () => {
+    const handleDelete = (e) => {
+        e.preventDefault();
         console.log(props.match.params.id);
-        //dispatch(deleteTask(props.match.params.id));
+        dispatch(deleteTask(props.match.params.id));
     }
 
     return (
