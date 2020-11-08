@@ -54,6 +54,16 @@ router.post('/createtask', async (req, res) => {
     } else {
         res.status(401).send({ msg: 'Task not created' });
     }
-})
+});
+
+router.delete('/deletetask/:id', async (req, res) => {
+    const task = await Task.findOne({_id: req.params.id});
+    if(task){
+        await Task.remove(task);
+        res.send({msg: 'Task succesfully deleted.'});
+    }else{
+        res.status(401).send({msg: 'Error: Task not deleted.'});
+    }
+});
 
 export default router;
