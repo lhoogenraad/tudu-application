@@ -7,7 +7,10 @@ import {
     TASK_SELECT_SUCCESS,
     TASK_CREATE_FAIL,
     TASK_CREATE_SUCCESS,
-    TASK_CREATE_REQUEST
+    TASK_CREATE_REQUEST,
+    TASK_DELETE_REQUEST,
+    TASK_DELETE_SUCCESS,
+    TASK_DELETE_FAIL
 } from "../constants/taskConstants";
 
 
@@ -44,6 +47,19 @@ function taskCreateReducer(state = {}, action) {
         case TASK_CREATE_SUCCESS:
             return { loading: false, task: action.payload };
         case TASK_CREATE_FAIL:
+            return { loading: false, error: action.payload };
+        default:
+            return state;
+    }
+}
+
+function taskDeleteReducer(state = {}, action) {
+    switch (action.type) {
+        case TASK_DELETE_REQUEST:
+            return { loading: true };
+        case TASK_DELETE_SUCCESS:
+            return { loading: false, task: action.payload, success: true };
+        case TASK_DELETE_FAIL:
             return { loading: false, error: action.payload };
         default:
             return state;
