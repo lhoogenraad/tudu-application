@@ -85,6 +85,12 @@ button:active{
     justify-content: center;
     background-color: lightgreen;
   }
+
+  .float{
+    float: left;
+    width: 100%;
+
+  }
   
   .tasklist{
     clear: both;
@@ -105,6 +111,24 @@ button:active{
     text-align: center;
     font-size: 3rem;
     padding-top: 7rem;
+    justify-content: center;
+  }
+
+  .tasklist.notasks{
+    font-size: 3rem;
+    padding-top: 7rem;
+    text-align: center;
+  }
+
+  .tasklist.notasks a{
+    display: inline-block;
+    text-align: center;
+    background-color: #D5FFCC;
+    padding: 1rem 2rem;
+    border-radius: 3rem;
+    color: #030;
+    margin-top: 3rem;
+    width: 20rem;
   }
 
 

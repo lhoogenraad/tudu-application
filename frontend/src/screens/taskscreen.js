@@ -11,7 +11,6 @@ function Taskscreen(props) {
     const { task, loading, error } = taskSelect;
 
     useEffect(() => {
-        console.log(props.match.params.id);
         dispatch(getTask(props.match.params.id));
         return () => { };
     }, []);
