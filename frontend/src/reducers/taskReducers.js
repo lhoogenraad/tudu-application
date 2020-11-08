@@ -66,4 +66,4 @@ function taskDeleteReducer(state = {}, action) {
     }
 }
 
-export { taskListReducer, taskSelectReducer, taskCreateReducer };
+export { taskListReducer, taskSelectReducer, taskCreateReducer, taskDeleteReducer };
