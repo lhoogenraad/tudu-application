@@ -17,9 +17,12 @@ function Taskscreen(props) {
     }, []);
 
     const handleDelete = (e) => {
+        // Prevent page from doing stuff on delete button click
         e.preventDefault();
-        console.log(props.match.params.id);
+        // Call delete method in deleteActions with the task id field
         dispatch(deleteTask(props.match.params.id));
+        // Redirect user to home page
+        props.history.push('/');
     }
 
     return (
