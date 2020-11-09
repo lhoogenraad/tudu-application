@@ -5,13 +5,22 @@ import SignInScreen from './screens/signinscreen';
 import RegisterScreen from './screens/registerscreen';
 import Logout from './screens/logout';
 import CreateTask from './screens/createtaskscreen';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import {logout} from './actions/userActions';
 
 function App() {
+
+  const dispatch = useDispatch();
 
   const userSignin = useSelector(state => state.userSignin);
   const {userInfo} = userSignin;
   
+  const handleLogout = () => {
+    dispatch(logout());
+    window.location.reload();
+  }
+
+
   return (
     <BrowserRouter>
       <div className="grid-container">
@@ -22,7 +31,7 @@ function App() {
             {userInfo ? <Link to="/profile">{userInfo.name}</Link> : 
             <Link to="/signin">Sign in</Link>
             }
-            {userInfo ? <Link to="/logout">Logout</Link>:
+            {userInfo ? <button onClick={handleLogout}>Logout</button>:
             <Link to="/register">Register</Link>}
 
             <Link to="/about">About</Link>
