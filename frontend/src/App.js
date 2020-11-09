@@ -30,7 +30,7 @@ function App() {
             {userInfo ? <Link to="/profile" className="navButton">{userInfo.name}</Link> : 
             <Link to="/signin" className="navButton">Sign in</Link>
             }
-            {userInfo ? <button className="navButton" onClick={handleLogout}>Logout</button>:
+            {userInfo ? <Link className="navButton" onClick={handleLogout}>Logout</Link>:
             <Link to="/register" className="navButton">Register</Link>}
 
             <Link to="/about" className="navButton">About</Link>
