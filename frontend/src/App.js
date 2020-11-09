@@ -26,14 +26,14 @@ function App() {
         <header className="header">
           <img className="logo" src="logo.png" height="150" width="250" alt="tudu-logo"></img>
           <ul className="navul">
-            <Link to="/">Home</Link>
-            {userInfo ? <Link to="/profile">{userInfo.name}</Link> : 
-            <Link to="/signin">Sign in</Link>
+            <Link to="/" className="navButton">Home</Link>
+            {userInfo ? <Link to="/profile" className="navButton">{userInfo.name}</Link> : 
+            <Link to="/signin" className="navButton">Sign in</Link>
             }
-            {userInfo ? <button onClick={handleLogout}>Logout</button>:
-            <Link to="/register">Register</Link>}
+            {userInfo ? <button className="navButton" onClick={handleLogout}>Logout</button>:
+            <Link to="/register" className="navButton">Register</Link>}
 
-            <Link to="/about">About</Link>
+            <Link to="/about" className="navButton">About</Link>
           </ul>
         </header>
         <main className="main">
