@@ -72,6 +72,7 @@ function CreateTaskScreen(props) {
                             className="description"
                             name="description"
                             id="description"
+                            placeholder="Your description"
                             onChange={(e) => setDescription(e.target.value)}></textarea>
                     </li>
                     <li>

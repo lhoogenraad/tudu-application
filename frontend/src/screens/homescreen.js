@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { listTasks } from '../actions/taskActions';
+import Cookie from 'js-cookie';
 
 function Homescreen(props) {
   /* These are our react hook definitions */
@@ -25,7 +26,6 @@ function Homescreen(props) {
     // If user is logged in, display their tasks
     if(userInfo){
       dispatch(listTasks(userInfo._id));
-      console.log('userInfo present');
     }
     return () => { };
   }, []);
@@ -38,8 +38,8 @@ function Homescreen(props) {
       <Link to="/signin">Sign in</Link>
       <Link to="/register">Create an account</Link>
       </ul>
-      </div> : 
-      tasks.length < 1 ? <div className="tasklist notasks"><span className="float">No tasks</span>
+      </div> :
+      tasks.length < 1 ? <div className="tasklist notasks"><span className="float">You currently have no tasks</span>
       <Link to='createtask'>Create a task</Link></div>:
         <div className="tasklist">
           <ul className="tasksul">
