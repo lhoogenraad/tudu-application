@@ -135,7 +135,7 @@ button:active{
   /* Represents the nav buttons */
 
 
-  .navul *{
+  .navul a{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: inline-block;
     text-align: center;
@@ -149,12 +149,12 @@ button:active{
     font-weight: bold;
   }
 
-  .navul *:hover{
+  .navul a:hover{
       transition: 0.2s;
       background-color: #afa;
   }
 
-  .navul *:active{
+  .navul a:active{
     transition: 0.05s;
     background-color: white;
   }
