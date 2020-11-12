@@ -48,7 +48,7 @@ function Homescreen(props) {
                 <Link to={"/tasks/" + task._id}>
                 <li className="taskli" key={task._id}>
                   <div className="task">
-                    <input type="checkbox"></input>
+                    <input type="checkbox" className="taskcheckbox"></input>
                     <div className="tasklistname">{task.name}</div>
                     <div className="tasklistdate">{task.date}</div>
                     <button className="deletebutton">Delete</button>
