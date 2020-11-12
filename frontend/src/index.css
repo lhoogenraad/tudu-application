@@ -182,20 +182,22 @@ button:active{
   
   .taskli{
     font-size: 2rem;
-    padding: 1rem;
     height: 4rem;
     width: 85%;
     border-radius: 3rem;
     margin-right: auto;
     margin-left: auto;
     align-content: space-between;
+    padding-top: 1.6rem;
+    padding-left: 2rem;
   }
   
   .taskli *{
-    margin-right: 2.5rem;
+    margin-right: 4.5rem;
   }
   
   .taskli:hover{
+    transition: .4s;
     background-color: rgb(71, 255, 71);
   }
   
