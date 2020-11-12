@@ -40,20 +40,21 @@ function Homescreen(props) {
       </ul>
       </div> :
       tasks.length < 1 ? <div className="tasklist notasks"><span className="float">You currently have no tasks</span>
-      <Link to='createtask'>Create a task</Link></div>:
+      <Link to='/createtask'>Create a task</Link></div>:
         <div className="tasklist">
           <ul className="tasksul">
             {
               tasks.map(task =>
-                <li className="taskli" key={task.id}>
+                <Link to={"/tasks/" + task._id}>
+                <li className="taskli" key={task._id}>
                   <div className="task">
                     <input type="checkbox"></input>
                     <div className="tasklistname">{task.name}</div>
                     <div className="tasklistdate">{task.date}</div>
-                    <Link to={'/tasks/' + task._id}>View task</Link>
                     <button className="deletebutton">Delete</button>
                   </div>
                 </li>
+                </Link>
               )
             }
           </ul>

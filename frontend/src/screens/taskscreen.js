@@ -36,12 +36,12 @@ function Taskscreen(props) {
                             <div className="details">
                                     <ul>
                                         <li>
-                                            <h2>Task name</h2>
-                                            <h3>{task.name}</h3>
+                                            <label className="taskLabel">Task name</label>
+                                            <h1>{task.name}</h1>
                                         </li>
                                         <li>
-                                            <h2>Task description</h2>
-                                            <p>{task.description}</p>
+                                            <label className="taskLabel">Task description</label>
+                                            <h1>{task.description}</h1>
                                         </li>
                                         <li>
                                             <p>Created on {task.dateCreated}</p>
