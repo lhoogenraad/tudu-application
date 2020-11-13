@@ -39,9 +39,7 @@ function CreateTaskScreen(props) {
         e.preventDefault();
         dispatch(createTask(name, description, userID));
         // Redirect user to home screen after 
-        if(loading == false){
-            props.history.push('/');
-        }
+        props.history.push('/');
     }
 
     return (
