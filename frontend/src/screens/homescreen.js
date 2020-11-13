@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { listTasks } from '../actions/taskActions';
@@ -9,6 +9,8 @@ function Homescreen(props) {
   //const [tasks, setTasks] = useState([]);
 
   const dispatch = useDispatch();
+
+  // This var will contain the task 
 
   /* 
     Here we get the list of tasks the user has created
@@ -30,6 +32,17 @@ function Homescreen(props) {
     return () => { };
   }, []);
 
+  /* 
+    This method will handle what happens when a user updates the completed status of a task.
+    Should consider using state to not let user try update task again until something 
+    is returned from method/dispatch
+  */
+  const handleUpdate = (taskid, e) => {
+    console.log(taskid);
+    console.log(e);
+  }
+
+
   return (
     loading ? <div className="tasklist loading">Loading...</div> :
       error ? <div>{error}</div> :
@@ -48,7 +61,7 @@ function Homescreen(props) {
                 <li className="taskli" key={task._id}>
                   <div className="task">
                     <div className="checkboxcontainer">
-                      <input type="checkbox" className="taskcheckbox" id="taskcheckbox"></input>
+                      <input type="checkbox" className="taskcheckbox" id="taskcheckbox" onChange={(e) => handleUpdate(task._id, e.target.checked)}></input>
                     </div>
                     <Link to={"/tasks/" + task._id}>
                     <div className="tasklistname">{task.name}</div>

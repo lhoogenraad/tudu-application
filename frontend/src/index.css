@@ -359,9 +359,14 @@ textarea{
   border: 1px solid black;
   background-color: white;
   -webkit-appearance: none;
-  transition: 1s all;
+  transition: .5s all;
 }
 
 .taskcheckbox:checked{
-  background-color: darkgreen;
+  background-color: green;
+}
+
+.taskcheckbox:active{
+  transition: .1s;
+  background-color: lightgreen;
 }
