@@ -27,12 +27,17 @@ function App() {
           <img className="logo" src="logo.png" height="150" width="250" alt="tudu-logo"></img>
           <ul className="navul">
             <Link to="/" className="navButton">Home</Link>
-            {userInfo ? <Link to="/profile" className="navButton">{userInfo.name}</Link> : 
+            {
+            userInfo ? 
+            <span>
+               <Link to="/profile" className="navButton">{userInfo.name}</Link> 
+               <Link className="navButton" onClick={handleLogout}>Logout</Link>
+            </span> : 
+            <span>
             <Link to="/signin" className="navButton">Sign in</Link>
+            <Link to="/register" className="navButton">Register</Link>
+            </span>
             }
-            {userInfo ? <Link className="navButton" onClick={handleLogout}>Logout</Link>:
-            <Link to="/register" className="navButton">Register</Link>}
-
             <Link to="/about" className="navButton">About</Link>
           </ul>
         </header>
