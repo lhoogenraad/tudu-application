@@ -32,14 +32,16 @@ function CreateTaskScreen(props) {
             props.history.push('/signin');
         }
         return () => { };
-    }, [userInfo]);
+    }, [userInfo, props.history]);
 
     const submitHandler = (e) => {
         // Prevent page from refreshing after submission
         e.preventDefault();
         dispatch(createTask(name, description, userID));
         // Redirect user to home screen after 
-        props.history.push('/');
+        if(loading == false){
+            props.history.push('/');
+        }
     }
 
     return (

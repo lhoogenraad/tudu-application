@@ -30,6 +30,7 @@ function App() {
             {
             userInfo ? 
             <span>
+              <Link to="/createtask" className="navButton">Create Task</Link>
                <Link to="/profile" className="navButton">{userInfo.name}</Link> 
                <Link className="navButton" onClick={handleLogout}>Logout</Link>
             </span> : 

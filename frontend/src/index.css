@@ -94,7 +94,7 @@ button:active{
   
   .tasklist{
     clear: both;
-    width: 80%;
+    width: 90%;
     height: 500px;
     /*Could condense these margins in future..*/
     margin-left: auto;
@@ -103,7 +103,7 @@ button:active{
     background-color: lightgreen;
     border: 1px solid green;
     border-radius: 50px;
-    padding: 1rem;
+    padding: 1rem 7rem 1rem 1rem;
     justify-content: center;
   }
   
@@ -183,7 +183,7 @@ button:active{
   .taskli{
     font-size: 2rem;
     height: 4rem;
-    width: 85%;
+    width: 100%;
     border-radius: 3rem;
     margin-right: auto;
     margin-left: auto;
@@ -203,10 +203,15 @@ button:active{
   
   .tasklistname{
     float: left;
+    width: 35%;
+    font-size: 130%;
+    word-wrap: none;
   }
   
   .tasklistdate{
     float: left;
+    font-size: 1.8rem;
+    word-wrap: none;
   }
   
   /* Task details page */

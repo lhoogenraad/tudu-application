@@ -37,7 +37,7 @@ router.get('/allbyuser', async (req, res) => {
 router.post('/createtask', async (req, res) => {
     // This field will be used to represent the date the task was created
     const date = new Date();
-    const saveDate = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
+    const saveDate = date; //date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
 
     const task = new Task({
         name: req.body.name,
