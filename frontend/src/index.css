@@ -183,6 +183,7 @@ button:active{
   }
   
   .taskli{
+    transition: .4s ease all;
     font-size: 2rem;
     height: 4rem;
     width: 100%;
@@ -202,10 +203,11 @@ button:active{
   }
   
   .taskli:hover{
-    transition: .4s;
+    transition: .4s ease all;
     background-color: rgb(71, 255, 71);
   }
   
+
   .tasklistname{
     float: left;
     width: auto;
