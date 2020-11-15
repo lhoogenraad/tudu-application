@@ -67,7 +67,10 @@ function Homescreen(props) {
                 <li className={"taskli"} key={task._id}>
                   <div className="task">
                     <div className="checkboxcontainer">
+                      {task.isCompleted ?
+                      <input type="checkbox" className="taskcheckbox" checked id="taskcheckbox" onChange={(e) => handleUpdate(task._id, e.target.checked)}></input> :
                       <input type="checkbox" className="taskcheckbox" id="taskcheckbox" onChange={(e) => handleUpdate(task._id, e.target.checked)}></input>
+                      }
                     </div>
                     <Link to={"/tasks/" + task._id}>
                     <div className="tasklistname">{task.name}</div>
