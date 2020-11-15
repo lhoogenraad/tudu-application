@@ -34,30 +34,34 @@ function Taskscreen(props) {
                     (
                         <div className="tasklist">
                             <div className="details">
-                                    <ul>
-                                        <li>
-                                            <label className="taskLabel">Task name</label>
-                                            <h1>{task.name}</h1>
-                                        </li>
-                                        <li>
-                                            <label className="taskLabel">Task description</label>
-                                            <h1>{task.description}</h1>
-                                        </li>
-                                        <li>
-                                            <p>Created on {task.dateCreated}</p>
-                                        </li>
+                                <ul>
+                                    <li>
+                                        <label className="taskLabel">Task name</label>
+                                        <h1>{task.name}</h1>
+                                    </li>
+                                    {
+                                        task.description ?
+                                            <li>
+                                                <label className="taskLabel">Task description</label>
+                                                <h1>{task.description}</h1>
+                                            </li>
+                                            : <span></span>
+                                    }
+                                    <li>
+                                        <p>Created on {task.dateCreated}</p>
+                                    </li>
 
-                                        <li>
-                                            <button className="deletebutton" onClick={handleDelete}>Delete task</button>
-                                        </li>
-                                    </ul>
+                                    <li>
+                                        <button className="deletebutton" onClick={handleDelete}>Delete task</button>
+                                    </li>
+                                </ul>
                             </div>
 
                         </div>
                     )
             }
         </div>
-        )
-    }
+    )
+}
 
 export default Taskscreen;
