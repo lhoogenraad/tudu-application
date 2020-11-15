@@ -38,9 +38,13 @@ function Homescreen(props) {
     is returned from method/dispatch
   */
   const handleUpdate = (taskid, e) => {
+    e.preventDefault();
     console.log(taskid);
     console.log(e);
     dispatch(setTask(taskid, e));
+    /* Ideally reloading the page isn't needed, but until i fix the weird
+    checkbox bug, this kind of has to be here */
+    window.location.reload();
   }
 
   const handleDelete = (taskid, e) => {
@@ -68,7 +72,7 @@ function Homescreen(props) {
                   <div className="task">
                     <div className="checkboxcontainer">
                       {task.isCompleted ?
-                      <input type="checkbox" className="taskcheckbox" checked id="taskcheckbox" onChange={(e) => handleUpdate(task._id, e.target.checked)}></input> :
+                      <input type="checkbox" className="taskcheckbox" checked='checked' id="taskcheckbox" onChange={(e) => handleUpdate(task._id, e.target.checked)}></input> :
                       <input type="checkbox" className="taskcheckbox" id="taskcheckbox" onChange={(e) => handleUpdate(task._id, e.target.checked)}></input>
                       }
                     </div>

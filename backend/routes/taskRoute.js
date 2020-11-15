@@ -74,6 +74,7 @@ router.put('/updatetask', async (req, res) => {
         const updatedTask = task.save();
         if(updatedTask){
             res.status(200).send({msg: 'Task updated successfully', data: updatedTask});
+            console.log('task ' + task._id + ' status set to ' + task.isCompleted);
         }
     }else{
         res.status.send(401).send({msg: 'Error: task couldn\'t be updated.'});
