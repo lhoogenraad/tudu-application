@@ -66,4 +66,18 @@ router.delete('/deletetask/:id', async (req, res) => {
     }
 });
 
+router.put('/updatetask', async (req, res) => {
+    // Get task from db
+    const task = await Task.findOne({_id: req.body.taskID});
+    if(task){
+        task.isCompleted = req.body.completedState;
+        const updatedTask = task.save();
+        if(updatedTask){
+            res.status(200).send({msg: 'Task updated successfully', data: updatedTask});
+        }
+    }else{
+        res.status.send(401).send({msg: 'Error: task couldn\'t be updated.'});
+    }
+});
+
 export default router;
