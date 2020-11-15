@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { listTasks } from '../actions/taskActions';
+import { deleteTask, listTasks } from '../actions/taskActions';
 import Cookie from 'js-cookie';
 
 function Homescreen(props) {
@@ -42,6 +42,11 @@ function Homescreen(props) {
     console.log(e);
   }
 
+  const handleDelete = (taskid, e) => {
+    dispatch(deleteTask(taskid));
+    window.location.reload();
+  }
+
 
   return (
     loading ? <div className="tasklist loading">Loading...</div> :
@@ -58,7 +63,7 @@ function Homescreen(props) {
           <ul className="tasksul">
             {
               tasks.map(task =>
-                <li className="taskli" key={task._id}>
+                <li className={"taskli"} key={task._id}>
                   <div className="task">
                     <div className="checkboxcontainer">
                       <input type="checkbox" className="taskcheckbox" id="taskcheckbox" onChange={(e) => handleUpdate(task._id, e.target.checked)}></input>
@@ -67,7 +72,7 @@ function Homescreen(props) {
                     <div className="tasklistname">{task.name}</div>
                     <div className="tasklistdate">{task.dateCreated}</div>
                     </Link>
-                    <button className="deletebutton">Delete</button>
+                    <button className="deletebutton" onClick={(e) => handleDelete(task._id, e)}>Delete</button>
                   </div>
                 </li>
               )

@@ -10,7 +10,10 @@ import {
     TASK_CREATE_REQUEST,
     TASK_DELETE_REQUEST,
     TASK_DELETE_SUCCESS,
-    TASK_DELETE_FAIL
+    TASK_DELETE_FAIL,
+    TASK_UPDATE_REQUEST,
+    TASK_UPDATE_SUCCESS,
+    TASK_UPDATE_FAIL
 } from "../constants/taskConstants";
 
 
@@ -66,4 +69,17 @@ function taskDeleteReducer(state = {}, action) {
     }
 }
 
-export { taskListReducer, taskSelectReducer, taskCreateReducer, taskDeleteReducer };
+function taskUpdateReducer(state = {}, action) {
+    switch (action.type) {
+        case TASK_UPDATE_REQUEST:
+            return { loading: true };
+        case TASK_UPDATE_SUCCESS:
+            return { loading: false, task: action.payload, success: true };
+        case TASK_UPDATE_FAIL:
+            return { loading: false, error: action.payload };
+        default:
+            return state;
+    }
+}
+
+export { taskListReducer, taskSelectReducer, taskCreateReducer, taskDeleteReducer, taskUpdateReducer };

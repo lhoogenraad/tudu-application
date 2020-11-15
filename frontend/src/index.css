@@ -93,9 +93,10 @@ button:active{
   }
   
   .tasklist{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     clear: both;
     width: 90%;
-    height: 500px;
+    height: auto;
     /*Could condense these margins in future..*/
     margin-left: auto;
     margin-right: auto;
@@ -168,6 +169,7 @@ button:active{
     padding: 0.6rem 3rem;
     border-radius: 1rem;
     transition: all 0.2s;
+    width: auto;
   }
   
   .deletebutton:hover{
@@ -184,12 +186,15 @@ button:active{
     font-size: 2rem;
     height: 4rem;
     width: 100%;
-    border-radius: 3rem;
+    border-radius: 3.5rem;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 1rem;
     align-content: space-between;
     padding-top: 1.6rem;
     padding-left: 2rem;
+    background-color: lightskyblue;
+    border: 1px solid green;
   }
   
   .taskli *{
@@ -203,8 +208,9 @@ button:active{
   
   .tasklistname{
     float: left;
-    width: 35%;
-    font-size: 130%;
+    width: auto;
+    margin-right: 30rem;
+    font-size: 2.4rem;
     word-wrap: none;
   }
   
@@ -213,7 +219,7 @@ button:active{
     font-size: 1.8rem;
     word-wrap: none;
   }
-  
+
   /* Task details page */
   
   .details{

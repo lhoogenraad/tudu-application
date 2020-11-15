@@ -1,5 +1,6 @@
 import Axios from 'axios';
-import {TASK_CREATE_FAIL, TASK_CREATE_REQUEST, TASK_CREATE_SUCCESS, TASK_DELETE_FAIL, TASK_DELETE_REQUEST, TASK_DELETE_SUCCESS, TASK_LIST_FAIL, TASK_LIST_REQUEST, TASK_LIST_SUCCESS, TASK_SELECT_FAIL, TASK_SELECT_REQUEST, TASK_SELECT_SUCCESS} from '../constants/taskConstants';
+import {TASK_CREATE_FAIL, TASK_CREATE_REQUEST, TASK_CREATE_SUCCESS, TASK_DELETE_FAIL, TASK_DELETE_REQUEST, TASK_DELETE_SUCCESS, TASK_LIST_FAIL, TASK_LIST_REQUEST, TASK_LIST_SUCCESS, TASK_SELECT_FAIL, TASK_SELECT_REQUEST, TASK_SELECT_SUCCESS,
+TASK_UPDATE_REQUEST, TASK_UPDATE_FAIL, TASK_UPDATE_SUCCESS} from '../constants/taskConstants';
 
 // Returns all tasks in data file
 const listTasks = (userID) =>  async (dispatch) => {
@@ -43,4 +44,17 @@ const deleteTask = (taskID) => async (dispatch) => {
     }
 }
 
-export {listTasks, getTask, createTask, deleteTask};
+/*
+    This method sets a task's completed status to the boolean value of completedState
+*/
+const setTask = (taskID, completedState) => async (dispatch) => {
+    try{
+        dispatch({type: TASK_UPDATE_REQUEST, payload: {taskID, completedState}});
+        const {result} = await Axios.put('/api/tasks/updatetask', {taskID, completedState});
+        dispatch({type: TASK_UPDATE_SUCCESS, payload: result, success: true});
+    }catch(error){
+        dispatch({type: TASK_UPDATE_FAIL, payload: error.message});
+    }
+}
+
+export {listTasks, getTask, createTask, deleteTask, setTask};

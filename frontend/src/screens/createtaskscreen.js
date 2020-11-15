@@ -39,12 +39,11 @@ function CreateTaskScreen(props) {
         e.preventDefault();
         dispatch(createTask(name, description, userID));
         // Redirect user to home screen after
-        console.log(loading);
         if(!error){
             alert('Task created successfully');
             props.history.push('/');
         }else{
-            alert('error: + ' + error);
+            alert('Error: + ' + error);
         }
     }
 
