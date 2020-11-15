@@ -38,7 +38,6 @@ function Homescreen(props) {
     is returned from method/dispatch
   */
   const handleUpdate = (taskid, e) => {
-    e.preventDefault();
     console.log(taskid);
     console.log(e);
     dispatch(setTask(taskid, e));
