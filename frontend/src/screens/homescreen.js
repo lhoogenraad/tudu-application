@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deleteTask, listTasks } from '../actions/taskActions';
+import { deleteTask, listTasks, setTask } from '../actions/taskActions';
 import Cookie from 'js-cookie';
 
 function Homescreen(props) {
@@ -40,6 +40,7 @@ function Homescreen(props) {
   const handleUpdate = (taskid, e) => {
     console.log(taskid);
     console.log(e);
+    dispatch(setTask(taskid, e));
   }
 
   const handleDelete = (taskid, e) => {
