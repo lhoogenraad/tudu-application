@@ -84,6 +84,8 @@ button:active{
     display: flex;
     justify-content: center;
     background-color: lightgreen;
+    border-top: 5px solid green;
+    height: 5rem;
   }
 
   .float{
@@ -101,6 +103,7 @@ button:active{
     margin-left: auto;
     margin-right: auto;
     margin-top: 3rem;
+    margin-bottom: 3rem;
     background-color: lightgreen;
     border: 1px solid green;
     border-radius: 50px;
