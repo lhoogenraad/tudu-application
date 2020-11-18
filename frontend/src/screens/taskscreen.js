@@ -13,7 +13,6 @@ function Taskscreen(props) {
     
     useEffect(() => {
         dispatch(getTask(props.match.params.id));
-        setDate(task.dateCreated/*.substring(0, 9)*/);
         return () => { };
     }, []);
 
@@ -50,7 +49,7 @@ function Taskscreen(props) {
                                             : <span></span>
                                     }
                                     <li>
-                                        <p>Created on {taskDate}</p>
+                                        <p>Created on {task.dateCreated.substring(0, 10)}</p>
                                     </li>
 
                                     <li>
