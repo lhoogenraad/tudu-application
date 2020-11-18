@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deleteTask, getTask } from '../actions/taskActions';
@@ -9,9 +9,11 @@ function Taskscreen(props) {
 
     const taskSelect = useSelector(state => state.taskSelect);
     const { task, loading, error } = taskSelect;
-
+    const [taskDate, setDate] = useState('');
+    
     useEffect(() => {
         dispatch(getTask(props.match.params.id));
+        setDate(task.dateCreated/*.substring(0, 9)*/);
         return () => { };
     }, []);
 
@@ -48,7 +50,7 @@ function Taskscreen(props) {
                                             : <span></span>
                                     }
                                     <li>
-                                        <p>Created on {task.dateCreated}</p>
+                                        <p>Created on {taskDate}</p>
                                     </li>
 
                                     <li>

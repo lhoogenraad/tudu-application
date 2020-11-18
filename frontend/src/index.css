@@ -173,6 +173,7 @@ button:active{
     border-radius: 1rem;
     transition: all 0.2s;
     width: auto;
+    margin-bottom: 5px;
   }
   
   .deletebutton:hover{
@@ -184,8 +185,14 @@ button:active{
   .deletebutton:active{
     background-color: #aa0000;
   }
-  
+
+  .task{
+    width: 100%
+  }
+
   .taskli{
+    display: flex;
+    justify-content: space-around;
     transition: .4s ease all;
     font-size: 2rem;
     height: 4rem;
@@ -194,10 +201,9 @@ button:active{
     margin-right: auto;
     margin-left: auto;
     margin-top: 1rem;
-    align-content: space-between;
     padding-top: 1.6rem;
     padding-left: 2rem;
-    background-color: lightskyblue;
+    background-color: white;
     border: 1px solid green;
   }
   
@@ -210,13 +216,20 @@ button:active{
     background-color: rgb(71, 255, 71);
   }
   
+  .tasklicontents{
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+  }
 
   .tasklistname{
     float: left;
     width: auto;
-    margin-right: 30rem;
+    /*margin-right: 30rem;*/
     font-size: 2.4rem;
     word-wrap: none;
+    order: 0;
+    margin-left: -10rem;
   }
   
   .tasklistdate{

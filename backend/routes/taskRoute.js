@@ -19,7 +19,7 @@ router.get('/getbyid/:id', async (req, res) => {
     }
 });
 
-// Returns all tasks that have field userId === userID
+// Returns all tasks that have field userId == userID
 router.get('/allbyuser', async (req, res) => {
     const userID = req.query.userID
     ? {userID: req.query.userID} : {};

@@ -22,11 +22,11 @@ function Homescreen(props) {
     display tasks or suggest that the user logs in.
   */
   const userSignin = useSelector(state => state.userSignin);
-  const {userInfo} = userSignin;
+  const { userInfo } = userSignin;
 
   useEffect(() => {
     // If user is logged in, display their tasks
-    if(userInfo){
+    if (userInfo) {
       dispatch(listTasks(userInfo._id));
     }
     return () => { };
@@ -43,7 +43,7 @@ function Homescreen(props) {
     dispatch(setTask(taskid, e));
     /* Ideally reloading the page isn't needed, but until i fix the weird
     checkbox bug, this kind of has to be here */
-    window.location.reload();
+    //window.location.reload();
   }
 
   const handleDelete = (taskid, e) => {
@@ -55,37 +55,41 @@ function Homescreen(props) {
   return (
     loading ? <div className="tasklist loading">Loading...</div> :
       error ? <div>{error}</div> :
-      !userInfo ? < div className="tasklist loading">Not logged in 
+        !userInfo ? < div className="tasklist loading">Not logged in
       <ul className="navul">
-      <Link to="/signin">Sign in</Link>
-      <Link to="/register">Create an account</Link>
-      </ul>
-      </div> :
-      tasks.length < 1 ? <div className="tasklist notasks"><span className="float">You currently have no tasks</span>
-      <Link to='/createtask'>Create a task</Link></div>:
-        <div className="tasklist">
-          <ul className="tasksul">
-            {
-              tasks.map(task =>
-                <li className={"taskli"} key={task._id}>
-                  <div className="task">
-                    <div className="checkboxcontainer">
-                      {task.isCompleted ?
-                      <input type="checkbox" className="taskcheckbox" checked='checked' id="taskcheckbox" onChange={(e) => handleUpdate(task._id, e.target.checked)}></input> :
-                      <input type="checkbox" className="taskcheckbox" id="taskcheckbox" onChange={(e) => handleUpdate(task._id, e.target.checked)}></input>
-                      }
-                    </div>
-                    <Link to={"/tasks/" + task._id}>
-                    <div className="tasklistname">{task.name}</div>
-                    <div className="tasklistdate">{task.dateCreated}</div>
-                    </Link>
-                    <button className="deletebutton" onClick={(e) => handleDelete(task._id, e)}>Delete</button>
-                  </div>
-                </li>
-              )
-            }
+            <Link to="/signin">Sign in</Link>
+            <Link to="/register">Create an account</Link>
           </ul>
-        </div>
+        </div> :
+          tasks.length < 1 ? <div className="tasklist notasks"><span className="float">You currently have no tasks</span>
+            <Link to='/createtask'>Create a task</Link></div> :
+            <div className="tasklist">
+              <ul className="tasksul">
+                {
+                  tasks.map(task =>
+                    <li className="taskli" key={task._id}>
+                      <div className="tasklicontents">
+                        <div className="checkboxcontainer">
+                          {task.isCompleted ?
+                            <input type="checkbox" className="taskcheckbox" checked='optional' id="taskcheckbox" onChange={(e) => handleUpdate(task._id, e.target.checked)}></input> :
+                            <input type="checkbox" className="taskcheckbox" id="taskcheckbox" onChange={(e) => handleUpdate(task._id, e.target.checked)}></input>
+                          }
+                        </div>
+                        <Link to={"/tasks/" + task._id}>
+                          <div className="tasklistname">{task.name}</div>
+                        </Link>
+                      </div>
+                      <div className="tasklicontents">
+                        <Link to={"/tasks/" + task._id}>
+                          <div className="tasklistdate">{task.dateCreated.substring(0, 10)}</div>
+                        </Link>
+                        <button className="deletebutton" onClick={(e) => handleDelete(task._id, e)}>Delete</button>
+                      </div>
+                    </li>
+                  )
+                }
+              </ul>
+            </div>
   )
 }
 
