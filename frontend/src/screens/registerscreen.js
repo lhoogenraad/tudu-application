@@ -22,7 +22,7 @@ function RegisterScreen(props) {
             props.history.push('/');
         }
         return () => { };
-    }, [userInfo]);
+    }, [userInfo, props.history]);
 
     const submitHandler = (e) => {
         // Prevent page from refreshing after submission

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deleteTask, getTask } from '../actions/taskActions';
@@ -9,12 +9,11 @@ function Taskscreen(props) {
 
     const taskSelect = useSelector(state => state.taskSelect);
     const { task, loading, error } = taskSelect;
-    const [taskDate, setDate] = useState('');
     
     useEffect(() => {
         dispatch(getTask(props.match.params.id));
         return () => { };
-    }, []);
+    }, [dispatch, props.match.params.id]);
 
     const handleDelete = (e) => {
         // Prevent page from doing stuff on delete button click

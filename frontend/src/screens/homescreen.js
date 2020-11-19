@@ -29,7 +29,7 @@ function Homescreen(props) {
       dispatch(listTasks(userInfo._id));
     }
     return () => { };
-  }, []);
+  }, [dispatch, userInfo]);
 
   /* 
     This method will handle what happens when a user updates the completed status of a task.
