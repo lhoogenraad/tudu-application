@@ -37,12 +37,7 @@ function Homescreen(props) {
     is returned from method/dispatch
   */
   const handleUpdate = (taskid, e) => {
-    console.log(taskid);
-    console.log(e);
     dispatch(setTask(taskid, e));
-    /* Ideally reloading the page isn't needed, but until i fix the weird
-    checkbox bug, this kind of has to be here */
-    //window.location.reload();
   }
 
   const handleDelete = (taskid, e) => {
