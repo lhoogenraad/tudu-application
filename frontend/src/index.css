@@ -217,9 +217,9 @@ button:active{
   }
   
   .tasklicontents{
-    width: auto;
+    width: 50%;
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
   }
 
   .tasklistname{

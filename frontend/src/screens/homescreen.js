@@ -71,7 +71,7 @@ function Homescreen(props) {
                       <div className="tasklicontents">
                         <div className="checkboxcontainer">
                           {task.isCompleted ?
-                            <input type="checkbox" className="taskcheckbox" checked='optional' id="taskcheckbox" onChange={(e) => handleUpdate(task._id, e.target.checked)}></input> :
+                            <input type="checkbox" className="taskcheckbox" checked="false" id="taskcheckbox" onChange={(e) => handleUpdate(task._id, e.target.checked)}></input> :
                             <input type="checkbox" className="taskcheckbox" id="taskcheckbox" onChange={(e) => handleUpdate(task._id, e.target.checked)}></input>
                           }
                         </div>
