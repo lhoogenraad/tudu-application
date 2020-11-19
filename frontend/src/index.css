@@ -223,15 +223,18 @@ button:active{
 
   .tasklicontents.name{
     justify-content: left;
+    align-items: flex-start;
   }
 
   .tasklicontents.date{
     justify-content: right;
+    align-items: flex-start;
   }
 
   .tasklistname{
     float: left;
-    /* For some reason setting the width to 1000% just works (???) */
+    /* For some reason setting the width to 1000% just works (???) 
+    This is probably an awful idea*/
     width: 1000%;
     /*margin-right: 30rem;*/
     font-size: 2.4rem;
@@ -242,7 +245,7 @@ button:active{
   
   .tasklistdate{
     float: left;
-    font-size: 1.8rem;
+    font-size: 2.1rem;
     word-wrap: none;
   }
 
@@ -396,7 +399,7 @@ textarea{
   border: 1px solid black;
   background-color: white;
   -webkit-appearance: none;
-  transition: .5s all;
+  transition: .2s all;
 }
 
 .taskcheckbox:checked{
@@ -404,6 +407,10 @@ textarea{
 }
 
 .taskcheckbox:active{
-  transition: .1s;
+  transition: .2s;
   background-color: lightgreen;
+}
+
+.taskcheckbox:hover{
+  background-color: lightskyblue;
 }
