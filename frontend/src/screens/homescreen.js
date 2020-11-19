@@ -62,7 +62,7 @@ function Homescreen(props) {
                 {
                   tasks.map(task =>
                     <li className="taskli" key={task._id}>
-                      <div className="tasklicontents">
+                      <div className="tasklicontents name">
                         <div className="checkboxcontainer">
                           {task.isCompleted ?
                             <input type="checkbox" className="taskcheckbox" checked="false" id="taskcheckbox" onChange={(e) => handleUpdate(task._id, e.target.checked)}></input> :
@@ -73,7 +73,7 @@ function Homescreen(props) {
                           <div className="tasklistname">{task.name}</div>
                         </Link>
                       </div>
-                      <div className="tasklicontents">
+                      <div className="tasklicontents date">
                         <Link to={"/tasks/" + task._id}>
                           <div className="tasklistdate">{task.dateCreated.substring(0, 10)}</div>
                         </Link>

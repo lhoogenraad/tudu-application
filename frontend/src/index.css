@@ -219,7 +219,14 @@ button:active{
   .tasklicontents{
     width: 50%;
     display: flex;
+  }
+
+  .tasklicontents.name{
     justify-content: left;
+  }
+
+  .tasklicontents.date{
+    justify-content: right;
   }
 
   .tasklistname{
@@ -230,7 +237,7 @@ button:active{
     font-size: 2.4rem;
     word-wrap: none;
     order: 0;
-    margin-left: -10rem;
+    margin-left: -7rem;
   }
   
   .tasklistdate{
