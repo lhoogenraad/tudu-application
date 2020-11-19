@@ -224,7 +224,8 @@ button:active{
 
   .tasklistname{
     float: left;
-    width: auto;
+    /* For some reason setting the width to 1000% just works (???) */
+    width: 1000%;
     /*margin-right: 30rem;*/
     font-size: 2.4rem;
     word-wrap: none;
