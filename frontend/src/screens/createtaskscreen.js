@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Cookie from 'js-cookie';
-import { Link } from 'react-router-dom';
 import { createTask } from '../actions/taskActions';
 
 function CreateTaskScreen(props) {

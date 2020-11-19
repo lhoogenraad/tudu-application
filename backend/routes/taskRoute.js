@@ -37,7 +37,7 @@ router.get('/allbyuser', async (req, res) => {
 router.post('/createtask', async (req, res) => {
     // This field will be used to represent the date the task was created
     const date = new Date();
-    const saveDate = date; //date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
+    const saveDate = date;
 
     const task = new Task({
         name: req.body.name,
@@ -69,12 +69,15 @@ router.delete('/deletetask/:id', async (req, res) => {
 router.put('/updatetask', async (req, res) => {
     // Get task from db
     const task = await Task.findOne({_id: req.body.taskID});
+    // If we found a task, set its completedState to the value of the passed completedState value
+    // in req.body
     if(task){
         task.isCompleted = req.body.completedState;
         const updatedTask = task.save();
         if(updatedTask){
             res.status(200).send({msg: 'Task updated successfully', data: updatedTask});
-            console.log('task ' + task._id + ' status set to ' + task.isCompleted);
+        }else{
+            res.status(401).send({msg: 'Error, task couldn\'t be saved after update'});
         }
     }else{
         res.status.send(401).send({msg: 'Error: task couldn\'t be updated.'});

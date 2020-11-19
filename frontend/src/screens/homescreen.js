@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { deleteTask, listTasks, setTask } from '../actions/taskActions';
-import Cookie from 'js-cookie';
 
 function Homescreen(props) {
   /* These are our react hook definitions */
