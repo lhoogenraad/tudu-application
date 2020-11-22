@@ -1,16 +1,19 @@
-import express from 'express';
-import data from './data';
-import dotenv from 'dotenv';
-import config from './config';
-import mongoose from 'mongoose';
-import userRoute from './routes/userRoute';
-import taskRoute from './routes/taskRoute';
-import bodyParser from 'body-parser';
+"use strict";
+
+var express = _interopRequireDefault(require('express'));
+var dotenv = _interopRequireDefault(require('dotenv'));
+var config = _interopRequireDefault(require('./config'));
+var mongoose = _interopRequireDefault(require('mongoose'));
+var userRoute = _interopRequireDefault(require('./routes/userRoute'));
+var taskRoute = _interopRequireDefault(require('./routes/taskRoute'));
+var bodyParser = _interopRequireDefault(require('body-parser'));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /* This code is for initialising a connection to the mongodb database */
 dotenv.config();
 const mongodbUrl = config.MONGODB_URL;
-mongoose.connect(mongodbUrl, {
+mongoose.default.connect(mongodbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -19,10 +22,10 @@ mongoose.connect(mongodbUrl, {
 
 /* This code is for setting up the express server to handle requests (on port 5000) */
 
-const app = express();
+const app = (0, express.default)();
 
-app.use(bodyParser.json());
-app.use('/api/users', userRoute);
-app.use('/api/tasks', taskRoute);
+app.use(bodyParser.default.json());
+app.use('/api/users', userRoute.default);
+app.use('/api/tasks', taskRoute.default);
 
 app.listen(5000, () => {console.log('backend server started on port 5000')});

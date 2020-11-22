@@ -1,4 +1,15 @@
-import mongoose from 'mongoose';
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _mongoose = _interopRequireDefault(require("mongoose"));
+
+var _assert = require("assert");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const taskSchema = new mongoose.Schema({
     name: {type: String, require: true},
@@ -13,4 +24,5 @@ const taskSchema = new mongoose.Schema({
 
 const taskModel = mongoose.model('Task', taskSchema);
 
-export default taskModel;
+var _default = taskModel;
+exports.default = _default;

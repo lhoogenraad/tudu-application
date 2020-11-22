@@ -1,12 +1,23 @@
-import express from 'express';
-import User from '../models/userModel';
-import {getToken} from '../util';
+"use strict";
 
-const router = express.Router();
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _express = _interopRequireDefault(require("express"));
+
+var _userModel = _interopRequireDefault(require("../models/userModel"));
+
+var _util = require("../util");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const router = _express.default.Router();
 
 router.get('/createadmin', async (req, res) => {
     try {
-        const user = new User({
+        const user = new _userModel.default({
             name: 'Leon',
             email: 'le.o.n@outlook.com',
             password: '123',
@@ -23,7 +34,7 @@ router.get('/createadmin', async (req, res) => {
 router.post('/signin', async (req, res) => {
     try{
         // Query db to see if user exists
-        const signinUser = await User.findOne({
+        const signinUser = await _userModel.default.findOne({
             email: req.body.email,
             password: req.body.password,
         });
@@ -34,7 +45,7 @@ router.post('/signin', async (req, res) => {
                 name: signinUser.name,
                 email: signinUser.email,
                 isAdmin: signinUser.isAdmin,
-                token: getToken(signinUser),
+                token: (0, _util.getToken)(signinUser),
             });
         }else{
             res.status(401).send({msg: 'Invalid Email or Password'});
@@ -48,7 +59,7 @@ router.post('/signin', async (req, res) => {
 
 // Handles request to create a new user
 router.post('/register', async (req, res) => {
-    const user = new User({
+    const user = new _userModel.default({
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
@@ -66,4 +77,5 @@ router.post('/register', async (req, res) => {
     }
 })
 
-export default router;
+var _default = router;
+exports.default = _default;
