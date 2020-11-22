@@ -69,12 +69,12 @@ function Homescreen(props) {
                             <input type="checkbox" className="taskcheckbox" id="taskcheckbox" onChange={(e) => handleUpdate(task._id, e.target.checked)}></input>
                           }
                         </div>
-                        <Link to={"/tasks/" + task._id}>
+                        <Link className="tasklink" to={"/tasks/" + task._id}>
                           <div className="tasklistname">{task.name}</div>
                         </Link>
                       </div>
                       <div className="tasklicontents date">
-                        <Link to={"/tasks/" + task._id}>
+                        <Link className="tasklink" to={"/tasks/" + task._id}>
                           <div className="tasklistdate">{task.dateCreated.substring(0, 10)}</div>
                         </Link>
                         <button className="deletebutton" onClick={(e) => handleDelete(task._id, e)}>Delete</button>

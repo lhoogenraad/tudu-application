@@ -27,7 +27,7 @@ function Taskscreen(props) {
     return (
         <div>
             <div>
-                <Link to="/" className="back-button"><span>Back to your tasks</span></Link>
+                <Link to="/" className="back-button">Back to your tasks</Link>
             </div>
             {loading ? <div>Loading...</div> :
                 error ? <div>{error}</div> :
@@ -48,7 +48,7 @@ function Taskscreen(props) {
                                             : <span></span>
                                     }
                                     <li>
-                                        <p>Created on {task.dateCreated.substring(0, 10)}</p>
+                                        <p>Created on {task.dateCreated}</p>
                                     </li>
 
                                     <li>
