@@ -12,7 +12,7 @@ var _assert = require("assert");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Describes how a user's data will be saved to the DB
-const userSchema = new mongoose.Schema({
+const userSchema = new _mongoose.default.Schema({
     name: {type: String, require: true},
     email: {type: String, require: true, unique: true},
     password: {type: String, require: true},
@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
 });
 
 // Defines the name of the model as 'User', and uses the userSchema previously defined
-const userModel = mongoose.model('User', userSchema);
+const userModel = _mongoose.default.model('User', userSchema);
 
 var _default = userModel;
 exports.default = _default;

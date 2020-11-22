@@ -11,7 +11,7 @@ var _assert = require("assert");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const taskSchema = new mongoose.Schema({
+const taskSchema = new _mongoose.default.Schema({
     name: {type: String, require: true},
     // Could potentially make description required
     description: {type: String, require: false},
@@ -22,7 +22,7 @@ const taskSchema = new mongoose.Schema({
     isCompleted: {type: Boolean, require: true},
 });
 
-const taskModel = mongoose.model('Task', taskSchema);
+const taskModel = _mongoose.default.model('Task', taskSchema);
 
 var _default = taskModel;
 exports.default = _default;

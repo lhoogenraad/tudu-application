@@ -1,16 +1,26 @@
-import express from 'express';
-import Task from '../models/taskModel';
-import data from '../data';
+"use strict";
 
-const router = express();
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.default = void 0;
+
+var _express = _interopRequireDefault(require("express"));
+
+var _userModel = _interopRequireDefault(require("../models/taskModel"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const router = _express.default.Router();
 
 router.get('/all', async (req, res) => {
-    const tasks = await Task.find({});
+    const tasks = await _userModel.default.find({});
     res.send(tasks);
 });
 
 router.get('/getbyid/:id', async (req, res) => {
-    const task = await Task.findOne({_id: req.params.id});
+    const task = await _userModel.default.findOne({_id: req.params.id});
     // If we found task, return it. If not, return 404
     if(task){
         res.send(task);
@@ -23,7 +33,7 @@ router.get('/getbyid/:id', async (req, res) => {
 router.get('/allbyuser', async (req, res) => {
     const userID = req.query.userID
     ? {userID: req.query.userID} : {};
-    const tasks = await Task.find({
+    const tasks = await _userModel.default.find({
         ...userID,
     });
     if (tasks) {
@@ -39,7 +49,7 @@ router.post('/createtask', async (req, res) => {
     const date = new Date();
     const saveDate = date;
 
-    const task = new Task({
+    const task = new _userModel.default({
         name: req.body.name,
         description: req.body.description,
         dateCreated: saveDate,
@@ -57,7 +67,7 @@ router.post('/createtask', async (req, res) => {
 });
 
 router.delete('/deletetask/:id', async (req, res) => {
-    const task = await Task.findOne({_id: req.params.id});
+    const task = await _userModel.default.findOne({_id: req.params.id});
     if(task){
         await Task.deleteOne(task);
         res.send({msg: 'Task succesfully deleted.'});
@@ -68,7 +78,7 @@ router.delete('/deletetask/:id', async (req, res) => {
 
 router.put('/updatetask', async (req, res) => {
     // Get task from db
-    const task = await Task.findOne({_id: req.body.taskID});
+    const task = await _userModel.default.findOne({_id: req.body.taskID});
     // If we found a task, set its completedState to the value of the passed completedState value
     // in req.body
     if(task){
@@ -84,4 +94,5 @@ router.put('/updatetask', async (req, res) => {
     }
 });
 
-export default router;
+var _default = router;
+exports.default = _default;
